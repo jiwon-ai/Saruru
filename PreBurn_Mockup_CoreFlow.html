@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PreBurn — Core Flow Mockup</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.1.0/dist/tabler-icons.min.css" />
+<style>
+  :root{
+    --surface-2:#ffffff; --surface-1:#f4f2ec; --surface-0:#eceadf;
+    --text-primary:#2c2c2a; --text-secondary:#5f5e5a; --text-muted:#888780;
+    --text-accent:#185fa5; --bg-accent:#e6f1fb; --border:rgba(0,0,0,.08);
+    --radius:8px; --font-mono:ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:#eceadf; font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--text-primary); padding:28px 16px;}
+  h1{font-size:20px; font-weight:500; text-align:center; margin:0 0 4px;}
+  .sub{text-align:center; color:var(--text-secondary); font-size:13px; margin:0 0 24px;}
+  .grid{max-width:720px; margin:0 auto; background:var(--surface-1); border-radius:14px; padding:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px;}
+  .phone{background:var(--surface-2); border:.5px solid var(--border); border-radius:22px; padding:13px 13px 18px; display:flex; flex-direction:column; min-height:400px;}
+  .bar{display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--text-muted); margin-bottom:14px;}
+  .btn{background:#D85A30; color:#fff; border:none; border-radius:var(--radius); padding:11px; font-size:13px; font-weight:500; width:100%; margin-top:14px; cursor:pointer;}
+  .card{background:var(--surface-1); border-radius:12px; padding:12px;}
+  .chip{font-size:11px; padding:4px 9px; border-radius:999px; background:var(--surface-1); color:var(--text-secondary);}
+  .chip.on{background:var(--bg-accent); color:var(--text-accent);}
+  .lbl{font-size:10px; color:var(--text-muted); margin:0 0 3px; text-transform:uppercase; letter-spacing:.04em;}
+</style>
+</head>
+<body>
+<h1>PreBurn — Core flow</h1>
+<p class="sub">Capture → Reframe → Burn. A &lt;3-minute private ritual.</p>
+<div class="grid">
+
+  <div class="phone">
+    <div class="bar"><span>9:41</span><span><i class="ti ti-lock"></i> Private</span></div>
+    <p style="font-size:16px;font-weight:500;margin:0 0 2px;">PreBurn</p>
+    <p style="font-size:12px;color:var(--text-secondary);margin:0 0 18px;">Burn before burnout</p>
+    <div class="card" style="text-align:center;margin-bottom:16px;">
+      <p style="font-size:24px;font-weight:500;margin:0;">3</p>
+      <p style="font-size:11px;color:var(--text-muted);margin:2px 0 0;">days, residue released</p>
+    </div>
+    <p style="font-size:13px;color:var(--text-secondary);margin:0 auto 0 0;line-height:1.6;">Carrying something from today? Let it go before it stacks up.</p>
+    <button class="btn"><i class="ti ti-plus"></i>&nbsp; New burn</button>
+  </div>
+
+  <div class="phone">
+    <div class="bar"><span><i class="ti ti-arrow-left"></i></span><span>Step 1 of 3</span></div>
+    <p style="font-size:15px;font-weight:500;margin:0 0 10px;">What happened?</p>
+    <div class="card" style="font-size:12px;color:var(--text-secondary);line-height:1.6;min-height:96px;">A customer tore his coupon in front of me and threw it on the floor…</div>
+    <div style="display:flex;justify-content:flex-end;margin:6px 0 14px;"><i class="ti ti-microphone" style="font-size:18px;color:var(--text-secondary);"></i></div>
+    <p style="font-size:11px;color:var(--text-muted);margin:0 0 8px;">How did it feel?</p>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:auto;">
+      <span class="chip on">Humiliated</span><span class="chip">Anger</span><span class="chip">Helpless</span>
+    </div>
+    <button class="btn">Continue</button>
+  </div>
+
+  <div class="phone">
+    <div class="bar"><span><i class="ti ti-sparkles"></i></span><span>Step 2 of 3</span></div>
+    <p style="font-size:15px;font-weight:500;margin:0 0 12px;">A way to see it</p>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:auto;">
+      <div class="card"><p class="lbl">Not your fault</p><p style="font-size:12px;color:var(--text-secondary);margin:0;line-height:1.55;">You applied a rule consistently. You didn't create the conflict.</p></div>
+      <div class="card"><p class="lbl">Why it stung</p><p style="font-size:12px;color:var(--text-secondary);margin:0;line-height:1.55;">It was a public gesture of disrespect, not just a disagreement.</p></div>
+    </div>
+    <button class="btn">Burn it&nbsp; <i class="ti ti-flame"></i></button>
+  </div>
+
+  <div class="phone" style="background:#2C2C2A;">
+    <div class="bar" style="color:#B4B2A9;"><span><i class="ti ti-flame"></i></span><span>Step 3 of 3</span></div>
+    <div style="background:#F1EFE8;border-radius:6px;padding:12px;transform:rotate(-2deg);margin:6px 10px 14px;">
+      <p style="font-size:10px;color:#5F5E5A;margin:0 0 6px;font-family:var(--font-mono);">— — — RECEIPT — — —</p>
+      <p style="font-size:11px;color:#2C2C2A;margin:0;line-height:1.5;">The coupon. The floor. The stare.</p>
+      <p style="font-size:10px;color:#888780;margin:8px 0 0;font-family:var(--font-mono);">This is not mine to carry.</p>
+    </div>
+    <p style="font-size:12px;color:#D3D1C7;text-align:center;margin:auto 4px 0;line-height:1.6;">Hold to burn</p>
+    <button class="btn" style="border-radius:999px;"><i class="ti ti-flame"></i>&nbsp; Release it</button>
+  </div>
+
+</div>
+</body>
+</html>
