@@ -99,13 +99,13 @@ export default function Onboarding({ onDone, font }: { onDone: (p: Prefs) => voi
             <Text style={[s.planName, f]}>Saruru Plus</Text>
             {variant === 'A' ? (
               <>
-                <Text style={[s.planPrice, f]}>연 ₩59,000 <Text style={s.planSmall}>· 하루 약 162원</Text></Text>
-                <Text style={[s.planSmall, f]}>또는 월 ₩9,900 · 14일 무료 체험</Text>
+                <Text style={[s.planPrice, f]}>연 ₩39,000 <Text style={s.planSmall}>· 하루 약 107원</Text></Text>
+                <Text style={[s.planSmall, f]}>또는 월 ₩5,900 · 14일 무료 체험</Text>
               </>
             ) : (
               <>
-                <Text style={[s.planPrice, f]}>월 ₩9,900 <Text style={s.planSmall}>· 첫 14일 무료</Text></Text>
-                <Text style={[s.planSmall, f]}>연 ₩59,000으로 약 50% 절약</Text>
+                <Text style={[s.planPrice, f]}>월 ₩5,900 <Text style={s.planSmall}>· 첫 14일 무료</Text></Text>
+                <Text style={[s.planSmall, f]}>연 ₩39,000으로 약 45% 절약</Text>
               </>
             )}
             <Text style={[s.planList, f]}>무제한 녹이기 · 깊은 리프레임 · 주간 사르르 레터 · 광고 없음</Text>

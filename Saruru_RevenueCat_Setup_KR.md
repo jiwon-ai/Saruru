@@ -16,8 +16,8 @@
 ## 1. 상품 설계(가격은 검증값)
 | 상품 ID | 종류 | 가격(가정) | 무료체험 |
 |---|---|---|---|
-| `saruru_plus_monthly` | 자동갱신 구독 | ₩9,900 / 월 | 14일 |
-| `saruru_plus_annual` | 자동갱신 구독 | ₩59,000 / 년 | 14일 |
+| `saruru_plus_monthly` | 자동갱신 구독 | ₩5,900 / 월 | 14일 |
+| `saruru_plus_annual` | 자동갱신 구독 | ₩39,000 / 년 | 14일 |
 
 - **엔타이틀먼트:** `plus` (앱은 이 값만 본다)
 - **Offering:** `default` 에 `monthly`·`annual` 패키지 2개

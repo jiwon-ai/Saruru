@@ -270,7 +270,7 @@ function Upsell({ onStart, onHome }: { onStart: () => void; onHome: () => void }
         <Text style={styles.resource}>· 깊은 AI 리프레임</Text>
         <Text style={styles.resource}>· 주간 사르르 레터 · 광고 없음</Text>
       </View>
-      <Text style={styles.body}>연 ₩59,000 (하루 약 162원) · 14일 무료 체험</Text>
+      <Text style={styles.body}>연 ₩39,000 (하루 약 107원) · 14일 무료 체험</Text>
       <Btn label="14일 무료 체험 시작" onPress={onStart} />
       <Btn label="내일 다시" onPress={onHome} ghost />
       <Text style={styles.disclaimer}>※ 가격은 출시 예정(가정값). 실결제는 추후 연동.</Text>

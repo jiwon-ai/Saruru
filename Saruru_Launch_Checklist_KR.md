@@ -18,7 +18,7 @@
 - ⬜ 분석 수신 엔드포인트 연결(`src/analytics.ts`의 `ENDPOINT`) — 무료 티어로 충분(예: 간단한 Worker)
 
 ## 2. 실결제(RevenueCat) — 🟡 당신 계정 필요
-- 🟡 App Store Connect / Play Console 구독 상품 2개 등록(₩9,900/월, ₩59,000/년, 14일 체험)
+- 🟡 App Store Connect / Play Console 구독 상품 2개 등록(₩5,900/월, ₩39,000/년, 14일 체험)
 - 🟡 RevenueCat 프로젝트 + 엔타이틀먼트 `plus` + Offering
 - 🟡 `npx expo install react-native-purchases` + EAS dev build
 - 🟡 `src/purchases.ts` `PURCHASES_CONFIGURED=true` + 키/ TODO 채우기 → 절차: `Saruru_RevenueCat_Setup_KR.md`
