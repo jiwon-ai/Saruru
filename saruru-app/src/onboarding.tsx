@@ -4,6 +4,7 @@ import { colors } from './theme';
 import { getReframe } from './ai';
 import { ReframeResult } from './types';
 import { track } from './analytics';
+import { startTrial } from './purchases';
 
 type Prefs = { deleteAfterMelt: boolean; bedtimeReminder: boolean; isPlus: boolean };
 
@@ -109,7 +110,7 @@ export default function Onboarding({ onDone, font }: { onDone: (p: Prefs) => voi
             )}
             <Text style={[s.planList, f]}>무제한 녹이기 · 깊은 리프레임 · 주간 사르르 레터 · 광고 없음</Text>
           </View>
-          <Btn label="14일 무료 체험 시작" onPress={() => { track('trial_start', { variant }); onDone({ deleteAfterMelt: true, bedtimeReminder: reminder, isPlus: true }); }} font={font} />
+          <Btn label="14일 무료 체험 시작" onPress={async () => { track('trial_start', { variant }); const ok = await startTrial(variant === 'B' ? 'monthly' : 'annual'); onDone({ deleteAfterMelt: true, bedtimeReminder: reminder, isPlus: ok }); }} font={font} />
           <Pressable onPress={() => { track('paywall_skip', { variant }); onDone({ deleteAfterMelt: true, bedtimeReminder: reminder, isPlus: false }); }}>
             <Text style={[s.skip, f]}>지금은 무료로 시작</Text>
           </Pressable>

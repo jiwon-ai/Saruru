@@ -13,6 +13,7 @@ import { loadState, saveState, recordMelt, meltsThisWeek, canMelt, SaruruState, 
 import { scheduleBedtime, cancelBedtime, scheduleRetention } from './src/notify';
 import Onboarding from './src/onboarding';
 import { track, getEventCounts } from './src/analytics';
+import { initPurchases, startTrial, checkEntitlement } from './src/purchases';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({ shouldShowAlert: true, shouldPlaySound: false, shouldSetBadge: false }),
@@ -31,7 +32,10 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [reframe, setReframe] = useState<ReframeResult | null>(null);
 
-  useEffect(() => { loadState().then(setState); track('app_open'); scheduleRetention(); }, []);
+  useEffect(() => {
+    loadState().then((s) => { setState(s); checkEntitlement().then((p) => { if (p) { const ns = { ...s, isPlus: true }; setState(ns); saveState(ns); } }); });
+    track('app_open'); scheduleRetention(); initPurchases();
+  }, []);
 
   if (!fontsLoaded || !state) {
     return <View style={[styles.root, styles.center]}><ActivityIndicator color={colors.accent} /></View>;
@@ -83,7 +87,7 @@ export default function App() {
       {screen === 'melt' && <Melt line={reframe?.melt_line || '이건 내가 짊어질 게 아니다.'} onDone={() => setScreen('released')} />}
       {screen === 'released' && <Released onHome={onReleased} />}
       {screen === 'letter' && <Letter count={meltsThisWeek(state)} isPlus={state.isPlus} onUpsell={() => setScreen('upsell')} onHome={() => setScreen('home')} />}
-      {screen === 'upsell' && <Upsell onStart={() => { track('upsell_convert'); persist({ ...state, isPlus: true }); setScreen('home'); }} onHome={() => setScreen('home')} />}
+      {screen === 'upsell' && <Upsell onStart={async () => { track('upsell_convert'); const ok = await startTrial('annual'); persist({ ...state, isPlus: ok || state.isPlus }); setScreen('home'); }} onHome={() => setScreen('home')} />}
       {screen === 'crisis' && <Crisis onHome={() => { reset(); setScreen('home'); }} />}
     </View>
   );

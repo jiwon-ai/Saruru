@@ -39,6 +39,7 @@ Pre-validation / pre-MVP. This repo currently holds the **planning, risk, and de
 | [Saruru_ASO_StoreListing_KR.md](./Saruru_ASO_StoreListing_KR.md) | 스토어 등록 문안 / ASO (KR) |
 | [Saruru_Onboarding_KR.md](./Saruru_Onboarding_KR.md) | 온보딩 흐름 + 페이월 설계 (KR) |
 | [Saruru_UnitEconomics_KR.md](./Saruru_UnitEconomics_KR.md) | 유닛 이코노믹스 추정 — Risk C (KR) |
+| [Saruru_RevenueCat_Setup_KR.md](./Saruru_RevenueCat_Setup_KR.md) | 실결제(RevenueCat) 연동 가이드 (KR) |
 
 ## App code
 `saruru-app/` — **runnable Expo (React Native) scaffold** of the core loop (home · capture · reframe · melt animation · released · crisis + nightly entry). Runs with mock AI (no key needed). See [saruru-app/README.md](./saruru-app/README.md).

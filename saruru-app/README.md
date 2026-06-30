@@ -23,6 +23,7 @@ npx expo start           # Expo Go 로 QR 스캔 (또는 i / a)
 - **페이월 A/B 골격**(`src/onboarding.tsx`): 가격 앵커 2종(A=연간·하루단가 / B=월간·연 50%절약) 랜덤 분기 + `paywall_view·trial_start·paywall_skip` 측정 → 전환 비교.
 - **리텐션 알림**(`src/notify.ts`): 앱 열 때마다 3·7일 뒤로 재설정 → 미사용 시 잔잔한 복귀. 식별자 기반이라 취침 알림과 공존.
 - **퍼널 디버그**(개발용): 홈에서 `__DEV__`일 때 퍼널 카운트 확인.
+- **결제 추상화 레이어**(`src/purchases.ts`): 호출부(온보딩·업셀·시작 동기화) 연결 완료. mock으로 Expo Go 동작, RevenueCat 교체는 이 파일 한 곳 + 가이드(`../Saruru_RevenueCat_Setup_KR.md`).
 - **mock AI**(`src/ai.ts`): 키 없이 클로저 지향 리프레임. 반격 멘트 없음.
 - **브랜드**: 미스트 블루 테마(`src/theme.ts`) + **Gowun Dodum** 폰트, 녹이면-삭제 토글.
 
