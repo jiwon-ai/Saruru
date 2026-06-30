@@ -35,6 +35,9 @@ Pre-validation / pre-MVP. This repo currently holds the **planning, risk, and de
 | [Saruru_Planning_KR.md](./Saruru_Planning_KR.md) | 기획서 / Product Plan (KR) |
 | [Saruru_Validation_Execution_KR.md](./Saruru_Validation_Execution_KR.md) | 검증 실행 패키지 — 체크리스트·DM·배포 (KR) |
 | [Saruru_Tracking.xlsx](./Saruru_Tracking.xlsx) | 검증 추적 시트 (기록 + 자동 요약) |
+| [Saruru_Global_Benchmark_KR.md](./Saruru_Global_Benchmark_KR.md) | 글로벌 벤치마크 + 발전 제안 (KR) |
+| [Saruru_ASO_StoreListing_KR.md](./Saruru_ASO_StoreListing_KR.md) | 스토어 등록 문안 / ASO (KR) |
+| [Saruru_Onboarding_KR.md](./Saruru_Onboarding_KR.md) | 온보딩 흐름 + 페이월 설계 (KR) |
 
 ## Core loop
 
