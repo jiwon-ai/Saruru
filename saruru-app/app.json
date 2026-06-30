@@ -4,14 +4,19 @@
     "slug": "saruru",
     "version": "0.1.0",
     "orientation": "portrait",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "primaryColor": "#6E8AAE",
     "splash": {
+      "image": "./assets/splash.png",
       "backgroundColor": "#F1F3F4",
       "resizeMode": "contain"
     },
     "ios": { "supportsTablet": true, "bundleIdentifier": "app.saruru" },
-    "android": { "package": "app.saruru" },
-    "web": { "bundler": "metro" }
+    "android": {
+      "package": "app.saruru",
+      "adaptiveIcon": { "foregroundImage": "./assets/adaptive-icon.png", "backgroundColor": "#6E8AAE" }
+    },
+    "web": { "favicon": "./assets/favicon.png", "bundler": "metro" }
   }
 }
