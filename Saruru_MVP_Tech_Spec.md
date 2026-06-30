@@ -108,6 +108,7 @@ Home ──"New melt"──▶ Capture ──"Continue"──▶ Reframe ──"
 ```
 
 - **Home (`index`)** — app name, streak count (`N days, residue released`), one calm line, `+ New melt` button. Privacy lock badge visible.
+- **오늘의 마무리 / Nightly wind-down (habit layer)** — optional evening entry on Home ("오늘 녹일 거 있어요?") → Capture. Optional bedtime reminder + guilt-free daily streak. Mitigates Risk A (sporadic use).
 - **Capture (`capture`)** — `TextInput` (multiline) titled "What happened?"; the keyboard's mic button gives dictation for free. Optional `EmotionChips`. `Continue` → save draft, go to Reframe.
 - **Reframe (`reframe`)** — on mount, call `getReframe(incident)`. Show a loading state, then render `not_your_responsibility`, `why_it_stung`, `closure_reframe`. `boundary_line` shown only if present, as a small secondary card. `Melt it` → Melt. **If `safety.flag` → replace this screen with Crisis.**
 - **Melt (`melt`)** — render the incident as a paper/receipt object showing `melt_line`; Reanimated sequence softens → blurs → melts away to nothing. Then Released.

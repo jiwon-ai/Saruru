@@ -30,6 +30,11 @@ Pre-validation / pre-MVP. This repo currently holds the **planning, risk, and de
 | [Saruru_Brand_Foundation.md](./Saruru_Brand_Foundation.md) | Brand foundation: positioning, color (Mist Blue), voice, logo |
 | [Saruru_Logo.svg](./Saruru_Logo.svg) | Wordmark logo (melting, lavender gradient) |
 | [Saruru_Validation_Scripts.md](./Saruru_Validation_Scripts.md) | Short-form video scripts + Wizard-of-Oz reframe examples (KR) |
+| [Saruru_Case_Studies_KR.md](./Saruru_Case_Studies_KR.md) | 성공 사례 스터디 — 차이점·배울 점 (KR) |
+| [Saruru_User_Manual_KR.md](./Saruru_User_Manual_KR.md) | 앱 사용 설명서 (KR) |
+| [Saruru_Planning_KR.md](./Saruru_Planning_KR.md) | 기획서 / Product Plan (KR) |
+| [Saruru_Validation_Execution_KR.md](./Saruru_Validation_Execution_KR.md) | 검증 실행 패키지 — 체크리스트·DM·배포 (KR) |
+| [Saruru_Tracking.xlsx](./Saruru_Tracking.xlsx) | 검증 추적 시트 (기록 + 자동 요약) |
 
 ## Core loop
 
