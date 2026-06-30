@@ -1,0 +1,7 @@
+# Cloudflare Worker 배포 설정
+# 1) npm i -g wrangler  (또는 npx wrangler)
+# 2) npx wrangler secret put ANTHROPIC_API_KEY   ← 키는 시크릿으로만
+# 3) npx wrangler deploy
+name = "saruru-proxy"
+main = "worker.ts"
+compatibility_date = "2024-11-01"
