@@ -1,36 +1,32 @@
-# 사르르 앱 (Expo) — v0 스캐폴드
+# 사르르 앱 (Expo)
 
-핵심 루프가 도는 실행 가능한 시작점. **API 키 없이도 mock 으로 바로 켜집니다.**
+핵심 루프가 도는 실행 가능한 앱. **API 키 없이도 mock 으로 바로 켜집니다.**
 
 ## 실행
 ```bash
 cd saruru-app
 npm install
-npx expo start      # Expo Go 앱으로 QR 스캔 (또는 i / a 로 시뮬레이터)
+npx expo install --fix   # SDK에 맞게 버전 정렬(권장)
+npx expo start           # Expo Go 로 QR 스캔 (또는 i / a)
 ```
-의존성 버전이 안 맞다고 나오면: `npx expo install --fix`
 
-## 구현된 것 (v0)
-- 화면 흐름: 홈 → (마음 녹이기 / 🌙 오늘의 마무리) → 캡처(한 줄+감정 태그) → 리프레임 → **녹이기 애니메이션** → 완료.
-- **위기 경로:** 위험 키워드 감지 시 의식 생략하고 도움 리소스 화면(자살예방상담 109 등).
-- **mock AI**(`src/ai.ts`): 키 없이 클로저 지향 리프레임 반환. 반격 멘트 없음.
-- 미스트 블루 테마(`src/theme.ts`), 녹이면 기록 삭제 토글, 스트릭 카운트(메모리).
+## 구현된 것
+- **온보딩 + 페이월**: 따뜻한 인사 → 공감 → *직접 한 번 녹여보기* → 프라이버시 → 취침 알림 → 페이월(연 ₩59,000 앵커·14일 체험·무가입 스킵). (`src/onboarding.tsx`)
+- **핵심 루프**: 홈 →(마음 녹이기 / 🌙 오늘의 마무리)→ 캡처(한 줄+감정태그) → 리프레임 → **녹이기 애니메이션** → "녹아서 사라졌어요".
+- **밤 의식 데일리 트리거**: 취침 전 알림(`expo-notifications`) 켜고 끄기.
+- **영구 저장 + 날짜 스트릭**: `@react-native-async-storage`. 같은 날 여러 번 녹여도 1일. (`src/storage.ts`)
+- **주간 '사르르 레터'**: 이번 주 녹인 횟수 + 따뜻한 한마디.
+- **위기 경로**: 위험 키워드 감지 시 의식 생략 + 도움 리소스(자살예방상담 109 등).
+- **mock AI**(`src/ai.ts`): 키 없이 클로저 지향 리프레임. 반격 멘트 없음.
+- **브랜드**: 미스트 블루 테마(`src/theme.ts`) + **Gowun Dodum** 폰트, 녹이면-삭제 토글.
 
 ## 실제 Claude 연결 (선택)
-1. `server/worker.ts` 를 Cloudflare Worker로 배포(`npx wrangler deploy`), 시크릿 `ANTHROPIC_API_KEY` 설정.
-2. `src/ai.ts` 의 `PROXY_URL` 에 Worker 주소 입력.
-> **키는 절대 앱에 넣지 않음** — 프록시만 호출. 프록시는 사건 텍스트를 로그에 남기지 않음.
+1. `server/worker.ts` 를 Cloudflare Worker로 배포, 시크릿 `ANTHROPIC_API_KEY` 설정.
+2. `src/ai.ts` 의 `PROXY_URL` 에 Worker 주소 입력. **키는 앱에 넣지 않음.**
 
 ## 아직 안 한 것 (다음)
-- 영구 저장(expo-sqlite) — 지금은 메모리. 앱 재시작 시 초기화.
-- 커스텀 폰트(Gowun Dodum, expo-font), 온보딩/페이월, 취침 전 알림(expo-notifications), 주간 '사르르 레터'.
-- 디자인 폴리시(그라데이션·로고).
+- 실결제(RevenueCat) — 지금 페이월은 UI만. · 로고 스플래시·그라데이션 폴리시 · 실제 위기 리소스 링크(전화 연결) · 분석(익명 이벤트만).
 
 ## 구조
 ```
-App.tsx            # 화면 상태머신 + 모든 화면
-src/theme.ts       # 미스트 블루 팔레트
-src/types.ts       # Incident, ReframeResult
-src/ai.ts          # getReframe (mock + 프록시 폴백 + 위기 체크)
-server/worker.ts   # Cloudflare Worker (Claude 호출, 키 보관)
-```
+App.tsx            
