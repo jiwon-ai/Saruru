@@ -38,6 +38,7 @@ Pre-validation / pre-MVP. This repo currently holds the **planning, risk, and de
 | [Saruru_Global_Benchmark_KR.md](./Saruru_Global_Benchmark_KR.md) | 글로벌 벤치마크 + 발전 제안 (KR) |
 | [Saruru_ASO_StoreListing_KR.md](./Saruru_ASO_StoreListing_KR.md) | 스토어 등록 문안 / ASO (KR) |
 | [Saruru_Onboarding_KR.md](./Saruru_Onboarding_KR.md) | 온보딩 흐름 + 페이월 설계 (KR) |
+| [Saruru_UnitEconomics_KR.md](./Saruru_UnitEconomics_KR.md) | 유닛 이코노믹스 추정 — Risk C (KR) |
 
 ## Core loop
 
