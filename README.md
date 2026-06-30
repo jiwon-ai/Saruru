@@ -27,6 +27,9 @@ Pre-validation / pre-MVP. This repo currently holds the **planning, risk, and de
 | [Saruru_Competitive_Analysis.md](./Saruru_Competitive_Analysis.md) | Competitive & market analysis (money lens) |
 | [Saruru_Validation_Kit.md](./Saruru_Validation_Kit.md) | 4-week validation kit (Wizard-of-Oz + fake-door) |
 | [Saruru_FakeDoor_Landing.html](./Saruru_FakeDoor_Landing.html) | Deployable fake-door landing page (KR) |
+| [Saruru_Brand_Foundation.md](./Saruru_Brand_Foundation.md) | Brand foundation: positioning, color (Mist Blue), voice, logo |
+| [Saruru_Logo.svg](./Saruru_Logo.svg) | Wordmark logo (melting, lavender gradient) |
+| [Saruru_Validation_Scripts.md](./Saruru_Validation_Scripts.md) | Short-form video scripts + Wizard-of-Oz reframe examples (KR) |
 
 ## Core loop
 

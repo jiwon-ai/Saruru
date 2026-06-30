@@ -13,14 +13,16 @@
   3) 인스타/틱톡 영상 → 이 페이지로 트래픽. '시작하기' 클릭률 + 이메일 등록수 = 지불의향 신호.
   ※ 실제 결제 없음. 누르면 '사전등록' 폼으로 연결.
 -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"/>
 <style>
   :root{
-    --bg:#F4F1EA; --card:#FFFFFF; --ink:#2C2C2A; --muted:#6B6A65;
-    --accent:#D85A30; --accent-ink:#fff; --line:rgba(0,0,0,.08);
+    --bg:#F1F3F4; --card:#FFFFFF; --ink:#2B3038; --muted:#586070;
+    --accent:#6E8AAE; --accent-ink:#fff; --line:rgba(0,0,0,.08);
   }
   *{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:-apple-system,"Apple SD Gothic Neo",Segoe UI,Roboto,"Noto Sans KR",sans-serif;
+    font-family:"Gowun Dodum",-apple-system,"Apple SD Gothic Neo",Segoe UI,Roboto,"Noto Sans KR",sans-serif;
     line-height:1.65;-webkit-font-smoothing:antialiased;}
   .wrap{max-width:560px;margin:0 auto;padding:0 20px;}
   .hero{text-align:center;padding:56px 0 32px;}
@@ -35,7 +37,7 @@
   section{padding:28px 0;border-top:1px solid var(--line);}
   h2{font-size:20px;margin:0 0 16px;font-weight:700;}
   .step{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;}
-  .num{flex:0 0 28px;height:28px;border-radius:50%;background:#F0DCD3;color:var(--accent);
+  .num{flex:0 0 28px;height:28px;border-radius:50%;background:#DDE6EE;color:var(--accent);
     display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;}
   .step p{margin:0;}
   .step b{display:block;font-size:15px;}
@@ -45,7 +47,7 @@
   .price .amt{font-size:22px;font-weight:700;}
   .price .amt small{font-size:13px;color:var(--muted);font-weight:400;}
   .price ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:14px;}
-  .pill{display:inline-block;background:#EAF3E0;color:#3B6D11;font-size:12px;font-weight:600;
+  .pill{display:inline-block;background:#DDE6EE;color:#3E5A7A;font-size:12px;font-weight:600;
     padding:3px 10px;border-radius:999px;margin-bottom:8px;}
   .privacy{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;font-size:14px;color:var(--muted);}
   .privacy b{color:var(--ink);}
@@ -58,7 +60,7 @@
   <div class="hero">
     <div class="brand">사르르 · Saruru</div>
     <h1>쌓이기 전에,<br/>오늘의 감정을 사르르 녹여 보내요</h1>
-    <p class="sub">진상 손님, 갑질, 무례 — 그 뒤에 남는 감정을 쌓이기 전에 흘려보내는 <b>3분 의식</b>. 비공개로, 안전하게.</p>
+    <p class="sub">진상 손님, 갑질, 무례 — 힘든 응대 직후, 쌓이기 전에 마음을 식히는 <b>3분</b>. 비공개로, 안전하게.</p>
   </div>
 
   <div class="ctas">
