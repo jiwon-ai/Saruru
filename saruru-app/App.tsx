@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   View, Text, TextInput, Pressable, ScrollView, Animated, Easing,
-  StyleSheet, ActivityIndicator, Switch, Linking,
+  StyleSheet, ActivityIndicator, Switch, Linking, Alert,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Notifications from 'expo-notifications';
@@ -10,9 +10,9 @@ import { colors, EMOTIONS } from './src/theme';
 import { getReframe } from './src/ai';
 import { Incident, ReframeResult } from './src/types';
 import { loadState, saveState, recordMelt, meltsThisWeek, canMelt, SaruruState, defaultState } from './src/storage';
-import { scheduleBedtime, cancelBedtime } from './src/notify';
+import { scheduleBedtime, cancelBedtime, scheduleRetention } from './src/notify';
 import Onboarding from './src/onboarding';
-import { track } from './src/analytics';
+import { track, getEventCounts } from './src/analytics';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({ shouldShowAlert: true, shouldPlaySound: false, shouldSetBadge: false }),
@@ -31,7 +31,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [reframe, setReframe] = useState<ReframeResult | null>(null);
 
-  useEffect(() => { loadState().then(setState); track('app_open'); }, []);
+  useEffect(() => { loadState().then(setState); track('app_open'); scheduleRetention(); }, []);
 
   if (!fontsLoaded || !state) {
     return <View style={[styles.root, styles.center]}><ActivityIndicator color={colors.accent} /></View>;
@@ -119,6 +119,11 @@ function Home({ state, onStart, onLetter, setDelete, setReminder }: any) {
         <Text style={styles.settingLabel}>취침 전 알림(밤 의식)</Text>
         <Switch value={state.bedtimeReminder} onValueChange={setReminder} trackColor={{ true: colors.accent }} />
       </View>
+      {__DEV__ && (
+        <Pressable onPress={async () => { const c = await getEventCounts(); Alert.alert('퍼널 카운트', JSON.stringify(c, null, 2)); }}>
+          <Text style={styles.link}>디버그: 퍼널 카운트</Text>
+        </Pressable>
+      )}
       <Text style={styles.disclaimer}>사르르는 의료·치료·상담·진단 서비스가 아니에요.</Text>
     </ScrollView>
   );

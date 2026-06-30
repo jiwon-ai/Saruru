@@ -20,6 +20,9 @@ npx expo start           # Expo Go 로 QR 스캔 (또는 i / a)
 - **수익 모델(프리미엄 게이팅)**: 무료 하루 1회 → 초과 시 업셀, Plus 무제한 + 주간 레터 전용. (실결제 RevenueCat 연동은 다음 단계.)
 - **익명 분석 스캐폴드**(`src/analytics.ts`): 퍼널·전환 이벤트(app_open·melt_start·melt_complete·upsell_view·upsell_convert 등). 기록 텍스트·PII 전송 없음.
 - **위기 전화 연결**: 109·1577-0199 탭하면 바로 전화 걸기(`Linking`).
+- **페이월 A/B 골격**(`src/onboarding.tsx`): 가격 앵커 2종(A=연간·하루단가 / B=월간·연 50%절약) 랜덤 분기 + `paywall_view·trial_start·paywall_skip` 측정 → 전환 비교.
+- **리텐션 알림**(`src/notify.ts`): 앱 열 때마다 3·7일 뒤로 재설정 → 미사용 시 잔잔한 복귀. 식별자 기반이라 취침 알림과 공존.
+- **퍼널 디버그**(개발용): 홈에서 `__DEV__`일 때 퍼널 카운트 확인.
 - **mock AI**(`src/ai.ts`): 키 없이 클로저 지향 리프레임. 반격 멘트 없음.
 - **브랜드**: 미스트 블루 테마(`src/theme.ts`) + **Gowun Dodum** 폰트, 녹이면-삭제 토글.
 

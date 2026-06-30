@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Pressable, ScrollView, StyleSheet, Switch } from 'react-native';
 import { colors } from './theme';
 import { getReframe } from './ai';
 import { ReframeResult } from './types';
+import { track } from './analytics';
 
 type Prefs = { deleteAfterMelt: boolean; bedtimeReminder: boolean; isPlus: boolean };
 
@@ -18,6 +19,8 @@ export default function Onboarding({ onDone, font }: { onDone: (p: Prefs) => voi
   const [tried, setTried] = useState<ReframeResult | null>(null);
   const [loading, setLoading] = useState(false);
   const f = font ? { fontFamily: font } : null;
+  const [variant] = useState<'A' | 'B'>(() => (Math.random() < 0.5 ? 'A' : 'B'));
+  useEffect(() => { if (step === 5) track('paywall_view', { variant }); }, [step, variant]);
 
   const next = () => setStep((s) => s + 1);
 
@@ -90,15 +93,24 @@ export default function Onboarding({ onDone, font }: { onDone: (p: Prefs) => voi
 
       {step === 5 && (
         <View>
-          <Text style={[s.h, f]}>방금처럼, 무제한으로.</Text>
+          <Text style={[s.h, f]}>{variant === 'A' ? '방금처럼, 무제한으로.' : '쌓인 감정, 매일 비우세요.'}</Text>
           <View style={s.planCard}>
             <Text style={[s.planName, f]}>Saruru Plus</Text>
-            <Text style={[s.planPrice, f]}>연 ₩59,000 <Text style={s.planSmall}>· 하루 약 162원</Text></Text>
-            <Text style={[s.planSmall, f]}>또는 월 ₩9,900 · 14일 무료 체험</Text>
+            {variant === 'A' ? (
+              <>
+                <Text style={[s.planPrice, f]}>연 ₩59,000 <Text style={s.planSmall}>· 하루 약 162원</Text></Text>
+                <Text style={[s.planSmall, f]}>또는 월 ₩9,900 · 14일 무료 체험</Text>
+              </>
+            ) : (
+              <>
+                <Text style={[s.planPrice, f]}>월 ₩9,900 <Text style={s.planSmall}>· 첫 14일 무료</Text></Text>
+                <Text style={[s.planSmall, f]}>연 ₩59,000으로 약 50% 절약</Text>
+              </>
+            )}
             <Text style={[s.planList, f]}>무제한 녹이기 · 깊은 리프레임 · 주간 사르르 레터 · 광고 없음</Text>
           </View>
-          <Btn label="14일 무료 체험 시작" onPress={() => onDone({ deleteAfterMelt: true, bedtimeReminder: reminder, isPlus: true })} font={font} />
-          <Pressable onPress={() => onDone({ deleteAfterMelt: true, bedtimeReminder: reminder, isPlus: false })}>
+          <Btn label="14일 무료 체험 시작" onPress={() => { track('trial_start', { variant }); onDone({ deleteAfterMelt: true, bedtimeReminder: reminder, isPlus: true }); }} font={font} />
+          <Pressable onPress={() => { track('paywall_skip', { variant }); onDone({ deleteAfterMelt: true, bedtimeReminder: reminder, isPlus: false }); }}>
             <Text style={[s.skip, f]}>지금은 무료로 시작</Text>
           </Pressable>
           <Text style={[s.note, f]}>※ 가격은 출시 예정(검증용 가정값).</Text>
