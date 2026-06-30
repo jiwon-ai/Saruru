@@ -6,7 +6,7 @@ import {
 import { StatusBar } from 'expo-status-bar';
 import * as Notifications from 'expo-notifications';
 import { useFonts, GowunDodum_400Regular } from '@expo-google-fonts/gowun-dodum';
-import { colors, EMOTIONS } from './src/theme';
+import { colors, EMOTIONS, EXAMPLES } from './src/theme';
 import { getReframe } from './src/ai';
 import { Incident, ReframeResult } from './src/types';
 import { loadState, saveState, recordMelt, meltsThisWeek, canMelt, SaruruState, defaultState } from './src/storage';
@@ -60,7 +60,7 @@ export default function App() {
   const onContinue = async () => {
     if (!text.trim()) return;
     setScreen('reframe'); setLoading(true);
-    const r = await getReframe({ text: text.trim(), emotions } as Incident);
+    const r = await getReframe({ text: text.trim(), emotions } as Incident, state.isPlus);
     setLoading(false); setReframe(r);
     if (r.safety.flag) setScreen('crisis');
   };
@@ -140,6 +140,16 @@ function Capture({ text, setText, emotions, toggleEmotion, night, onContinue, on
       <Text style={styles.h2}>{night ? '오늘 녹이고 갈 거 있어요?' : '무슨 일이 있었어요?'}</Text>
       <TextInput style={styles.input} value={text} onChangeText={setText} multiline
         placeholder="한 줄이면 충분해요. (키보드 마이크로 말해도 돼요.)" placeholderTextColor={colors.muted} textAlignVertical="top" />
+      {!text.trim() && (
+        <View style={styles.exWrap}>
+          <Text style={styles.smallLabel}>막막하면, 예시로 시작해요 (눌러서 내 얘기로 고쳐요)</Text>
+          {EXAMPLES.map((ex: string) => (
+            <Pressable key={ex} onPress={() => setText(ex)} style={styles.exChip}>
+              <Text style={styles.exText}>{ex}</Text>
+            </Pressable>
+          ))}
+        </View>
+      )}
       <Text style={styles.smallLabel}>지금 기분은? (선택)</Text>
       <View style={styles.chips}>
         {EMOTIONS.map((e) => {
@@ -299,6 +309,9 @@ const styles = StyleSheet.create({
   h2: { fontSize: 20, color: colors.ink, marginBottom: 16, fontFamily: FONT },
   input: { backgroundColor: colors.card, borderRadius: 12, padding: 14, minHeight: 120, fontSize: 16, color: colors.ink, marginBottom: 18, fontFamily: FONT },
   smallLabel: { fontSize: 12, color: colors.muted, marginBottom: 8, fontFamily: FONT },
+  exWrap: { marginBottom: 16 },
+  exChip: { backgroundColor: colors.card, borderRadius: 10, paddingVertical: 10, paddingHorizontal: 14, marginBottom: 8 },
+  exText: { fontSize: 14, color: colors.muted, fontFamily: FONT },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 24 },
   chip: { backgroundColor: colors.card, borderRadius: 999, paddingVertical: 7, paddingHorizontal: 13 },
   chipOn: { backgroundColor: colors.accentSoft },

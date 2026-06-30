@@ -130,9 +130,10 @@ function mockReframe(input: Incident): ReframeResult {
   return { ...(hit ? hit.tpl : DEFAULT_TPL), safety: { flag: false, reason: null } };
 }
 
-export async function getReframe(input: Incident): Promise<ReframeResult> {
+// usePlusAI=true(=Plus 구독)일 때만 내 얘기를 읽는 실제 AI 사용. 무료는 비AI 템플릿(원가 0).
+export async function getReframe(input: Incident, usePlusAI = false): Promise<ReframeResult> {
   if (clientCrisisCheck(input.text)) return mockReframe(input);
-  if (!PROXY_URL) return mockReframe(input);
+  if (!PROXY_URL || !usePlusAI) return mockReframe(input);
   try {
     const res = await fetch(PROXY_URL + '/reframe', {
       method: 'POST',
