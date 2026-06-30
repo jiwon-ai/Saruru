@@ -20,7 +20,7 @@
 
 Le **concept est émotionnellement juste et l'intuition du fondateur est réelle.** Mais l'*entreprise* repose sur **deux hypothèses non prouvées** que le plan original traite comme des faits :
 
-1. Que le « rituel de combustion » (burn ritual) procure réellement un soulagement et fait revenir les gens (efficacité + rétention).
+1. Que le « rituel de fonte » (melt ritual) procure réellement un soulagement et fait revenir les gens (efficacité + rétention).
 2. Que ce public précis — les travailleurs de première ligne en contact avec la clientèle — **paiera** pour cela.
 
 Si l'une des deux est fausse, presque rien d'autre dans le plan ne tient. Tout ce qui suit vise à tester ces deux choses à faible coût, **avant** de dépenser de l'argent à construire.
@@ -28,8 +28,8 @@ Si l'une des deux est fausse, presque rien d'autre dans le plan ne tient. Tout c
 ## 1.2 Ce qui est réellement fort (à conserver)
 
 - **L'histoire du fondateur (le coupon déchiré) est authentique et mémorable.** C'est le meilleur atout. Elle explique le problème en 20 secondes et inspire confiance.
-- **Discipline de positionnement.** « Brûler le résidu, pas la personne. » Pas de vengeance, pas de liste noire de clients, pas d'humiliation publique. Cette retenue est rare et juste.
-- **Réflexe « confidentialité d'abord ».** Stockage local en priorité, suppression après combustion, aucun pistage publicitaire. Dans une catégorie régulièrement critiquée pour ses abus en matière de données, cela peut être un vrai facteur de différenciation *si on le met fortement en avant.*
+- **Discipline de positionnement.** « Faire fondre le résidu, pas la personne. » Pas de vengeance, pas de liste noire de clients, pas d'humiliation publique. Cette retenue est rare et juste.
+- **Réflexe « confidentialité d'abord ».** Stockage local en priorité, suppression après fonte, aucun pistage publicitaire. Dans une catégorie régulièrement critiquée pour ses abus en matière de données, cela peut être un vrai facteur de différenciation *si on le met fortement en avant.*
 - **Honnêteté sur les allégations médicales.** Refuser de prétendre « soigner le burnout » évite le rejet par l'App Store et l'exposition juridique.
 - **Honnêteté intellectuelle.** Le plan original qualifie lui-même ses projections d'hypothèses. Cette habitude est à garder.
 
@@ -61,7 +61,7 @@ Le personnel de restaurant, les employés de café et de bar, les vendeurs au d�
 
 Chaque incident traité peut déclencher **plusieurs appels au LLM** (résumer, classifier l'émotion, séparer la responsabilité, recadrer, générer des scripts, détecter les situations à risque). Avec une offre gratuite importante, le **coût des biens vendus (COGS) lié à l'IA peut dépasser le chiffre d'affaires.** Le modèle financier original n'a **aucune ligne de COGS et suppose un CAC ≈ 0** (« TikTok organique »), ce qui ne tient presque jamais — même le contenu organique a un coût de production réel et un rendement incertain.
 
-**Quoi faire :** Modéliser explicitement le **coût IA par utilisateur gratuit par mois**. Rendre l'**offre gratuite sans IA** (rituel de combustion en local, sans appel au modèle = coût marginal quasi nul). Réserver les modèles coûteux aux utilisateurs *payants* et à l'analyse *complète* uniquement ; utiliser des modèles bon marché pour la classification. Si la marge sur coûts variables par utilisateur payant n'est pas confortablement positive après IA + frais de boutique (Apple/Google prélèvent ~15–30 %), le prix ou le modèle est mauvais.
+**Quoi faire :** Modéliser explicitement le **coût IA par utilisateur gratuit par mois**. Rendre l'**offre gratuite sans IA** (rituel de fonte en local, sans appel au modèle = coût marginal quasi nul). Réserver les modèles coûteux aux utilisateurs *payants* et à l'analyse *complète* uniquement ; utiliser des modèles bon marché pour la classification. Si la marge sur coûts variables par utilisateur payant n'est pas confortablement positive après IA + frais de boutique (Apple/Google prélèvent ~15–30 %), le prix ou le modèle est mauvais.
 
 ## 1.4 Autres problèmes structurels
 
@@ -71,11 +71,11 @@ La promesse du produit est une **confidentialité que l'employeur ne peut pas vo
 
 ### Risque E — L'efficacité n'est pas prouvée, et la conception peut *augmenter* la rumination
 
-La prémisse thérapeutique est une **hypothèse, pas un fait.** Réécrire l'incident et générer des scripts de répartie (« ce que j'aurais dû dire ») peut renforcer la **rumination** au lieu de la libérer — des recherches en psychologie suggèrent que se défouler et répéter ses griefs peut *renforcer* la colère plutôt que la décharger (littérature sur le mythe de la catharsis, p. ex. les travaux de Brad Bushman et ses collègues). Cela entre en collision avec la philosophie de marque (« brûler = lâcher prise ») : un générateur de répliques peut discrètement devenir une **machine à ressasser les griefs.** L'efficacité et le sens de l'effet doivent être **mesurés en bêta**, pas supposés. Si les utilisateurs se sentent *plus mal* ou plus obsédés, la boucle centrale doit être repensée (vers la clôture et le recadrage, et non la répétition).
+La prémisse thérapeutique est une **hypothèse, pas un fait.** Réécrire l'incident et générer des scripts de répartie (« ce que j'aurais dû dire ») peut renforcer la **rumination** au lieu de la libérer — des recherches en psychologie suggèrent que se défouler et répéter ses griefs peut *renforcer* la colère plutôt que la décharger (littérature sur le mythe de la catharsis, p. ex. les travaux de Brad Bushman et ses collègues). Cela entre en collision avec la philosophie de marque (« faire fondre = lâcher prise ») : un générateur de répliques peut discrètement devenir une **machine à ressasser les griefs.** L'efficacité et le sens de l'effet doivent être **mesurés en bêta**, pas supposés. Si les utilisateurs se sentent *plus mal* ou plus obsédés, la boucle centrale doit être repensée (vers la clôture et le recadrage, et non la répétition).
 
 ### Risque F — La barrière à l'entrée est fine et facile à copier
 
-Focalisation sur un segment + prompts LLM + animation de combustion : tout cela peut être cloné en un week-end, y compris par un concurrent « wrapper LLM » ou un acteur établi. Le rituel de combustion est une **fioriture d'interface, pas un actif défendable.** Un avantage durable, s'il existe, doit venir de l'un de ces éléments : (a) une marque de confiance au sein d'une communauté précise, (b) une qualité de recadrage réellement supérieure, construite à partir d'un apprentissage accumulé (respectueux de la vie privée), ou (c) un verrouillage de la distribution. Nommez explicitement la barrière visée ; « nous étions les premiers » n'en est pas une.
+Focalisation sur un segment + prompts LLM + animation de fonte : tout cela peut être cloné en un week-end, y compris par un concurrent « wrapper LLM » ou un acteur établi. Le rituel de fonte est une **fioriture d'interface, pas un actif défendable.** Un avantage durable, s'il existe, doit venir de l'un de ces éléments : (a) une marque de confiance au sein d'une communauté précise, (b) une qualité de recadrage réellement supérieure, construite à partir d'un apprentissage accumulé (respectueux de la vie privée), ou (c) un verrouillage de la distribution. Nommez explicitement la barrière visée ; « nous étions les premiers » n'en est pas une.
 
 ### Risque G — Le TAM est un chiffre de vanité
 
@@ -120,7 +120,7 @@ Si deux de ces critères ou plus échouent, le geste honnête est de **pivoter l
 
 ## 2.1 Résumé exécutif (révisé)
 
-Saruru (사르르) est un **outil de décompression émotionnelle, confidentialité d'abord,** pour les personnes en contact avec la clientèle. Après une interaction difficile, l'utilisateur saisit brièvement ce qui s'est passé, reçoit un court recadrage guidé par l'IA qui sépare *sa* responsabilité du comportement du client, et accomplit un rituel symbolique de « combustion » pour marquer la clôture.
+Saruru (사르르) est un **outil de décompression émotionnelle, confidentialité d'abord,** pour les personnes en contact avec la clientèle. Après une interaction difficile, l'utilisateur saisit brièvement ce qui s'est passé, reçoit un court recadrage guidé par l'IA qui sépare *sa* responsabilité du comportement du client, et accomplit un rituel symbolique de « fonte » pour marquer la clôture.
 
 **Ce qui change par rapport au plan original, et pourquoi :**
 
@@ -142,7 +142,7 @@ Une boucle délibérément **courte** (cible : moins de ~3 minutes) :
 
 1. **Capturer** — texte ou voix ; étiquettes d'émotion optionnelles ; catégorie de lieu de travail.
 2. **Recadrer (IA)** — résumé neutre ; interprétation *possible* (jamais « le client voulait définitivement dire X ») ; ce qui n'était **pas** votre responsabilité ; pourquoi ça a piqué ; un recadrage orienté vers la **clôture**.
-3. **Rituel de combustion** — l'incident devient un objet visuel (reçu/note) qui se plie, noircit et brûle. Phrase de clôture : *« Libéré. Tu n'as pas à porter ça. »*
+3. **Rituel de fonte** — l'incident devient un objet visuel (reçu/note) qui se plie, noircit et fond. Phrase de clôture : *« Cela a fondu. Tu n'as pas à porter ça. »*
 
 **Garde-fou de conception (nouveau) :** Parce que répéter les répliques peut alimenter la rumination (Risque E), les « scripts de réponse » sont **optionnels et secondaires**, présentés comme un *langage de limite pour la prochaine fois*, et non comme des munitions. La charge émotionnelle principale est la **clôture**, pas le fait de gagner la dispute.
 
@@ -150,7 +150,7 @@ Une boucle délibérément **courte** (cible : moins de ~3 minutes) :
 
 - **Catégorie :** prévention du burnout + décompression émotionnelle + micro-récupération au travail (une niche précise, pas un « traitement de santé mentale »).
 - **En une ligne :** Un outil de décompression confidentialité-d'abord pour les gens qui ont affaire à des gens.
-- **Philosophie :** *Brûler le résidu, pas la personne.* Pas de vengeance, pas de base de données clients, pas d'humiliation publique.
+- **Philosophie :** *Faire fondre le résidu, pas la personne.* Pas de vengeance, pas de base de données clients, pas d'humiliation publique.
 - **Voix :** calme, protectrice, émotionnellement précise, jamais vengeresse.
 
 ## 2.5 Marché cible — avec la réalité de la disposition à payer (révisé)
@@ -183,7 +183,7 @@ Différenciation à court terme : **spécificité du segment + conception confid
 
 ## 2.8 Feuille de route produit (focalisée)
 
-**MVP (seulement après réussite de la validation) :** capture d'incident (texte + voix), étiquettes d'émotion, recadrage IA avec le garde-fou de clôture, rituel de combustion, suppression après combustion, paywall simple. **Optionnel/secondaire :** scripts de langage de limite.
+**MVP (seulement après réussite de la validation) :** capture d'incident (texte + voix), étiquettes d'émotion, recadrage IA avec le garde-fou de clôture, rituel de fonte, suppression après fonte, paywall simple. **Optionnel/secondaire :** scripts de langage de limite.
 
 **Reporter (V1+) :** détection de motifs récurrents, bilans burnout, expansion multilingue, visuels personnalisés, rituels avant/après service.
 
@@ -192,7 +192,7 @@ Différenciation à court terme : **spécificité du segment + conception confid
 ## 2.9 Modèle économique (révisé)
 
 **Freemium B2C :**
-- **Offre gratuite = sans IA** (rituel de combustion en local, étiquettes de base). Coût marginal quasi nul ; protège l'économie unitaire.
+- **Offre gratuite = sans IA** (rituel de fonte en local, étiquettes de base). Coût marginal quasi nul ; protège l'économie unitaire.
 - **Premium *(prix hypothèse : 4,99 €/mois ou 39,99 €/an)* :** recadrage IA, saisie vocale, scripts optionnels, archive privée, analyses.
 
 **Hypothèse de conversion : 2–3 %** (et non 4–7 %), reflétant le Risque B. Testez plus bas en condition de stress.
@@ -223,7 +223,7 @@ Les chiffres originaux de revenu annualisé Années 1–3 (≈24 K€ → ≈254
 
 - **Un segment, une géographie, une boucle centrale.** Résister à l'éparpillement multilingue/multi-segment tant que la rétention n'est pas prouvée.
 - **Canaux :** vidéo courte (l'histoire du fondateur est l'accroche), communautés pertinentes de travailleurs/patrons. Suivre le **coût par utilisateur acquis**, temps de production de contenu inclus — pas « gratuit ».
-- **Message :** « Brûle avant le burnout. » Commencer par l'histoire du coupon déchiré.
+- **Message :** « Avant que ça s'accumule, laisse-le fondre. » Commencer par l'histoire du coupon déchiré.
 
 ## 2.12 Feuille de route « validation d'abord » (les vraies 4 prochaines semaines)
 
@@ -239,13 +239,13 @@ Les chiffres originaux de revenu annualisé Années 1–3 (≈24 K€ → ≈254
 
 ## 2.13 Indicateurs qui comptent
 
-- **Avancés :** activation de la première combustion, **rétention de la première semaine**, fréquence d'incidents par utilisateur actif, taux d'achèvement du rituel.
+- **Avancés :** activation de la première fonte, **rétention de la première semaine**, fréquence d'incidents par utilisateur actif, taux d'achèvement du rituel.
 - **Commerciaux :** conversion gratuit→payant (cible 2–3 %), marge sur coûts variables par utilisateur payant, attrition.
 - **Résultat (auto-déclaré, non clinique) :** « Je me sens plus léger après usage », « Je l'ai moins porté », « Je me suis senti plus préparé ». Ne **jamais** revendiquer d'amélioration médicale sans validation clinique.
 
 ## 2.14 Éthique, sécurité & confidentialité (non négociable)
 
-- **Confidentialité :** pas de noms de clients, pas de noms de lieux de travail par défaut, pas de photo/vidéo dans le MVP, local d'abord quand c'est possible, suppression après combustion, pas de vente de données, pas de pistage publicitaire, consentement explicite avant tout traitement IA. Le mettre fortement en avant — c'est un facteur de différenciation.
+- **Confidentialité :** pas de noms de clients, pas de noms de lieux de travail par défaut, pas de photo/vidéo dans le MVP, local d'abord quand c'est possible, suppression après fonte, pas de vente de données, pas de pistage publicitaire, consentement explicite avant tout traitement IA. Le mettre fortement en avant — c'est un facteur de différenciation.
 - **Sécurité :** parcours de crise conservateur. Si une saisie suggère automutilation, menaces ou crise, **ne pas** dérouler le rituel comme si tout était normal — proposer des ressources de soutien adaptées et conscientes de la juridiction. Supposer que la détection de crise par LLM est imparfaite ; concevoir pour les faux négatifs (Risque H).
 - **Allégations :** Saruru n'est **pas** un dispositif médical, une thérapie, un service de crise ni un outil de diagnostic. Ne jamais prétendre « guérir » ou « traiter » le burnout ou la dépression.
 - **Pas** de cadrage vengeur, **pas** d'identification des clients, **pas** de surveillance par l'employeur.

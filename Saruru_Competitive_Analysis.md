@@ -49,7 +49,7 @@ The opportunity is **not** "another meditation app." It's a focused, emotionally
 
 ## 4. What actually makes money (5 playbook lessons)
 
-1. **Generous free tier + soft paywall beats a hard wall.** Finch lets you fully raise the pet for free and sells customization/extras. Gating core utility (a Daylio criticism) drives churn. → Saruru: the *burn ritual itself* should be free and satisfying; sell the AI depth.
+1. **Generous free tier + soft paywall beats a hard wall.** Finch lets you fully raise the pet for free and sells customization/extras. Gating core utility (a Daylio criticism) drives churn. → Saruru: the *melt ritual itself* should be free and satisfying; sell the AI depth.
 2. **AI is a pricing lever, not just a cost.** AI journals charge $12.99–14.99. Saruru's reframe is the premium feature — price the AI tier above mood-tracker rates (think **$7.99–9.99/mo**, not €4.99), and protect margin with the non-AI free tier + credits.
 3. **Annual plans win.** Users are 57% more likely to pick yearly; annual subs retain ~33%/yr vs. ~17% monthly. → Lead with the annual price, anchor monthly as the expensive option.
 4. **Longer free trials convert better.** 17–32-day trials convert ~45.7% vs. ~26.8% for ≤4-day trials. → Give a real trial window, not 3 days.
@@ -59,7 +59,7 @@ The opportunity is **not** "another meditation app." It's a focused, emotionally
 
 ## 5. Pricing & packaging recommendation for Saruru
 
-- **Free (no AI):** unlimited basic text burn + the ritual. Near-zero cost, builds habit, the share-able hook.
+- **Free (no AI):** unlimited basic text melt + the ritual. Near-zero cost, builds habit, the share-able hook.
 - **Plus (AI):** **~€7.99/mo or ~€49.99/yr** (raise from €4.99 — the AI justifies it; benchmark to Rosebud/Mindsera, not Daylio). Annual front-and-center.
 - **Trial:** 14–30 days, not 3.
 - **Credits:** only if/when cloud STT is added (per the v1 decision).

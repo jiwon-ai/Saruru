@@ -20,7 +20,7 @@
 
 The **concept is emotionally true and the founder insight is real.** But the *business* rests on **two unproven assumptions** that the original plan treats as facts:
 
-1. That the "burn ritual" actually makes people feel better and brings them back (efficacy + retention).
+1. That the "melt ritual" actually makes people feel better and brings them back (efficacy + retention).
 2. That this specific audience — frontline service workers — will **pay** for it.
 
 If either is false, almost nothing else in the plan survives. Everything below is in service of testing those two things cheaply, before spending money building.
@@ -28,8 +28,8 @@ If either is false, almost nothing else in the plan survives. Everything below i
 ## 1.2 What is genuinely strong (keep these)
 
 - **The founder story (the torn coupon) is authentic and memorable.** It is the single best asset. It explains the problem in 20 seconds and earns trust.
-- **Positioning discipline.** "Burn the residue, not the person." No revenge, no customer blacklist, no public shaming. This restraint is rare and correct.
-- **Privacy-first instinct.** Local-first, delete-after-burn, no ad tracking. In a category repeatedly criticized for privacy abuse, this can be a real differentiator *if marketed loudly.*
+- **Positioning discipline.** "Melt the residue, not the person." No revenge, no customer blacklist, no public shaming. This restraint is rare and correct.
+- **Privacy-first instinct.** Local-first, delete-after-melt, no ad tracking. In a category repeatedly criticized for privacy abuse, this can be a real differentiator *if marketed loudly.*
 - **Honesty about medical claims.** Refusing to claim it "treats burnout" avoids App Store rejection and legal exposure.
 - **Intellectual honesty.** The original plan labels its own projections as assumptions. That habit is worth keeping.
 
@@ -61,7 +61,7 @@ Restaurant staff, café and bar workers, retail clerks, and call-center agents a
 
 Each processed incident can trigger **several LLM calls** (summarize, classify emotion, separate responsibility, reframe, generate scripts, run safety detection). With a large free tier, **AI cost of goods (COGS) can exceed revenue.** The original financial model has **no COGS line and assumes CAC ≈ 0** ("organic TikTok"), which almost never holds — even organic content has a real production cost and unreliable yield.
 
-**What to do:** Model **AI cost per free user per month** explicitly. Make the **free tier non-AI** (local-only burn ritual, no model calls = near-zero marginal cost). Reserve expensive models for *paying* users and for *full* analysis only; use cheap models for classification. If contribution margin per paying user isn't comfortably positive after AI + store fees (Apple/Google take ~15–30%), the price or the model is wrong.
+**What to do:** Model **AI cost per free user per month** explicitly. Make the **free tier non-AI** (local-only melt ritual, no model calls = near-zero marginal cost). Reserve expensive models for *paying* users and for *full* analysis only; use cheap models for classification. If contribution margin per paying user isn't comfortably positive after AI + store fees (Apple/Google take ~15–30%), the price or the model is wrong.
 
 ## 1.4 Other structural problems
 
@@ -71,11 +71,11 @@ The product's promise is **privacy the employer cannot see.** But B2B buyers wan
 
 ### Risk E — Efficacy is unproven, and the design may *increase* rumination
 
-The therapeutic premise is a **hypothesis, not a fact.** Re-writing the incident and generating "what I should have said" comeback scripts can deepen **rumination** rather than release it — there is psychology research suggesting that venting and rehearsing grievances can *reinforce* anger rather than discharge it (the catharsis-myth literature, e.g., work by Brad Bushman and colleagues). This collides with the brand philosophy ("burn = let go"): a comeback-script generator can quietly become a **grievance-rehearsal machine.** Efficacy and direction-of-effect must be **measured in beta**, not assumed. If users feel *worse* or more fixated, the core loop needs redesign (e.g., toward closure and reframing, away from rehearsal).
+The therapeutic premise is a **hypothesis, not a fact.** Re-writing the incident and generating "what I should have said" comeback scripts can deepen **rumination** rather than release it — there is psychology research suggesting that venting and rehearsing grievances can *reinforce* anger rather than discharge it (the catharsis-myth literature, e.g., work by Brad Bushman and colleagues). This collides with the brand philosophy ("melt = let go"): a comeback-script generator can quietly become a **grievance-rehearsal machine.** Efficacy and direction-of-effect must be **measured in beta**, not assumed. If users feel *worse* or more fixated, the core loop needs redesign (e.g., toward closure and reframing, away from rehearsal).
 
 ### Risk F — The moat is thin and easy to copy
 
-Segment focus + LLM prompts + a burning animation can be cloned in a weekend, including by an LLM-wrapper competitor or an incumbent. The burn ritual is a **UI flourish, not a defensible asset.** A durable advantage, if any, must come from one of: (a) trusted brand within a specific community, (b) genuinely superior reframe quality built from accumulated (privacy-safe) learning, or (c) distribution lock-in. Name the intended moat explicitly; "we were first" is not one.
+Segment focus + LLM prompts + a melting animation can be cloned in a weekend, including by an LLM-wrapper competitor or an incumbent. The melt ritual is a **UI flourish, not a defensible asset.** A durable advantage, if any, must come from one of: (a) trusted brand within a specific community, (b) genuinely superior reframe quality built from accumulated (privacy-safe) learning, or (c) distribution lock-in. Name the intended moat explicitly; "we were first" is not one.
 
 ### Risk G — TAM is a vanity number
 
@@ -120,7 +120,7 @@ If two or more of these fail, the honest move is to **pivot the model** (buyer, 
 
 ## 2.1 Executive summary (revised)
 
-Saruru (사르르) is a **privacy-first emotional decompression tool** for people in customer-facing work. After a difficult interaction, the user briefly captures what happened, receives a short AI-guided reframe that separates *their* responsibility from the customer's behavior, and completes a symbolic "burn" ritual to mark closure.
+Saruru (사르르) is a **privacy-first emotional decompression tool** for people in customer-facing work. After a difficult interaction, the user briefly captures what happened, receives a short AI-guided reframe that separates *their* responsibility from the customer's behavior, and completes a symbolic "melt" ritual to mark closure.
 
 **What changed from the original plan, and why:**
 
@@ -142,7 +142,7 @@ A deliberately **short** loop (target under ~3 minutes):
 
 1. **Capture** — text or voice; optional emotion tags; workplace category.
 2. **Reframe (AI)** — neutral summary; *possible* interpretation (never "the customer definitely meant X"); what was **not** your responsibility; why it stung; a reframe oriented toward **closure**.
-3. **Burn ritual** — the incident becomes a visual object (receipt/note) that folds, darkens, and burns. Closing line: *"Released. You do not have to carry this."*
+3. **Melt ritual** — the incident becomes a visual object (receipt/note) that softens, blurs, and melts away. Closing line: *"Melted away. You do not have to carry this."*
 
 **Design guardrail (new):** Because rehearsing comebacks can fuel rumination (Risk E), "response scripts" are **optional and secondary**, framed as *boundary language for next time*, not as ammunition. The primary emotional payload is **closure**, not winning the argument.
 
@@ -150,7 +150,7 @@ A deliberately **short** loop (target under ~3 minutes):
 
 - **Category:** burnout prevention + emotional decompression + workplace micro-recovery (a precise niche, not "mental health treatment").
 - **One line:** A privacy-first decompression tool for people who deal with people.
-- **Philosophy:** *Burn the residue, not the person.* No revenge, no customer database, no public shaming.
+- **Philosophy:** *Melt the residue, not the person.* No revenge, no customer database, no public shaming.
 - **Voice:** calm, protective, emotionally precise, never vengeful.
 
 ## 2.5 Target market — with willingness-to-pay reality (revised)
@@ -183,7 +183,7 @@ Near-term differentiation: **segment specificity + privacy-first design + closur
 
 ## 2.8 Product roadmap (focused)
 
-**MVP (only after validation passes):** incident capture (text + voice), emotion tags, AI reframe with the closure guardrail, burn ritual, delete-after-burn, simple paywall. **Optional/secondary:** boundary-language scripts.
+**MVP (only after validation passes):** incident capture (text + voice), emotion tags, AI reframe with the closure guardrail, melt ritual, delete-after-melt, simple paywall. **Optional/secondary:** boundary-language scripts.
 
 **Defer (V1+):** pattern detection, burnout check-ins, multilingual expansion, custom visuals, before/after-shift rituals.
 
@@ -192,7 +192,7 @@ Near-term differentiation: **segment specificity + privacy-first design + closur
 ## 2.9 Business model (revised)
 
 **B2C freemium:**
-- **Free tier = non-AI** (local burn ritual, basic tags). Near-zero marginal cost; protects unit economics.
+- **Free tier = non-AI** (local melt ritual, basic tags). Near-zero marginal cost; protects unit economics.
 - **Premium *(price assumption: €4.99/mo or €39.99/yr)*:** AI reframe, voice input, optional scripts, private archive, insights.
 
 **Conversion assumption: 2–3%** (not 4–7%), reflecting Risk B. Stress-test lower.
@@ -223,7 +223,7 @@ Original Year 1–3 run-rate figures (≈€24K → ≈€254K → ≈€1.36M) 
 
 - **One segment, one geography, one core loop.** Resist multilingual/multi-segment spread until retention is proven.
 - **Channels:** short-form video (the founder story is the hook), relevant worker/owner communities. Track **cost per acquired user**, including content production time — not "free."
-- **Message:** "Burn before burnout." Lead with the torn-coupon story.
+- **Message:** "Before it builds up, melt it away." Lead with the torn-coupon story.
 
 ## 2.12 Validation-first roadmap (the real next 4 weeks)
 
@@ -239,13 +239,13 @@ Original Year 1–3 run-rate figures (≈€24K → ≈€254K → ≈€1.36M) 
 
 ## 2.13 Metrics that matter
 
-- **Leading:** first-burn activation, **first-week retention**, incident frequency per active user, ritual completion rate.
+- **Leading:** first-melt activation, **first-week retention**, incident frequency per active user, ritual completion rate.
 - **Commercial:** free→paid conversion (target 2–3%), contribution margin per paying user, churn.
 - **Outcome (self-reported, non-clinical):** "I feel lighter after using it," "I carried it less," "I felt more prepared." **Never** claim medical improvement without clinical validation.
 
 ## 2.14 Ethics, safety & privacy (non-negotiable)
 
-- **Privacy:** no customer names, no workplace names by default, no photo/video in MVP, local-first where possible, delete-after-burn, no sale of data, no ad tracking, explicit consent before any AI processing. Market this loudly — it is a differentiator.
+- **Privacy:** no customer names, no workplace names by default, no photo/video in MVP, local-first where possible, delete-after-melt, no sale of data, no ad tracking, explicit consent before any AI processing. Market this loudly — it is a differentiator.
 - **Safety:** conservative crisis path. If input suggests self-harm, threats, or crisis, **do not** run the ritual as if normal — surface appropriate, jurisdiction-aware support resources. Assume LLM crisis detection is imperfect; design for false negatives (Risk H).
 - **Claims:** Saruru is **not** a medical device, therapy, crisis service, or diagnostic tool. Never claim to "cure" or "treat" burnout or depression.
 - **No** revenge framing, **no** customer identification, **no** employer surveillance.
