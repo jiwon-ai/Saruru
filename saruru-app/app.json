@@ -12,11 +12,20 @@
       "backgroundColor": "#F1F3F4",
       "resizeMode": "contain"
     },
-    "ios": { "supportsTablet": true, "bundleIdentifier": "app.saruru" },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "app.saruru"
+    },
     "android": {
       "package": "app.saruru",
-      "adaptiveIcon": { "foregroundImage": "./assets/adaptive-icon.png", "backgroundColor": "#6E8AAE" }
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#EAEFF4"
+      }
     },
-    "web": { "favicon": "./assets/favicon.png", "bundler": "metro" }
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    }
   }
 }
