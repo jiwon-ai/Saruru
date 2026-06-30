@@ -10,8 +10,8 @@ type Prefs = { deleteAfterMelt: boolean; bedtimeReminder: boolean; isPlus: boole
 
 const SAMPLES = [
   '손님이 쿠폰을 제 앞에서 찢어 던졌어요.',
-  '반말로 소리치며 빨리 하라고 했어요.',
-  '"이런 것도 못 하냐"는 말을 들었어요.',
+  '상사가 사람들 앞에서 면박을 줬어요.',
+  '친한 친구가 약속을 또 어겼어요.',
 ];
 
 export default function Onboarding({ onDone, font }: { onDone: (p: Prefs) => void; font?: string }) {
@@ -37,15 +37,15 @@ export default function Onboarding({ onDone, font }: { onDone: (p: Prefs) => voi
       {step === 0 && (
         <View style={s.center}>
           <Text style={[s.brand, f]}>사르르</Text>
-          <Text style={[s.h, f]}>사람을 상대하는 당신께.{'\n'}오늘도 수고했어요.</Text>
-          <Text style={[s.body, f]}>손님이 남긴 감정, 쌓이기 전에 사르르 녹여 보내요.</Text>
+          <Text style={[s.h, f]}>사람 때문에 상한 마음,{'\n'}혼자 삼키지 마세요.</Text>
+          <Text style={[s.body, f]}>사람한테 받은 감정, 쌓이기 전에 사르르 녹여 보내요.</Text>
           <Btn label="시작하기" onPress={next} font={font} />
         </View>
       )}
 
       {step === 1 && (
         <View style={s.center}>
-          <Text style={[s.h, f]}>진상 손님 뒤,{'\n'}그 감정 어디에 두세요?</Text>
+          <Text style={[s.h, f]}>상처 준 사람 뒤,{'\n'}그 감정 어디에 두세요?</Text>
           <Text style={[s.body, f]}>참고 삼키면 번아웃이 돼요. 사르르는 그 전에 녹여요.</Text>
           <Btn label="다음" onPress={next} font={font} />
         </View>
