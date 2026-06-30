@@ -9,7 +9,7 @@ import { useFonts, GowunDodum_400Regular } from '@expo-google-fonts/gowun-dodum'
 import { colors, EMOTIONS } from './src/theme';
 import { getReframe } from './src/ai';
 import { Incident, ReframeResult } from './src/types';
-import { loadState, saveState, recordMelt, meltsThisWeek, SaruruState, defaultState } from './src/storage';
+import { loadState, saveState, recordMelt, meltsThisWeek, canMelt, SaruruState, defaultState } from './src/storage';
 import { scheduleBedtime, cancelBedtime } from './src/notify';
 import Onboarding from './src/onboarding';
 
@@ -18,7 +18,7 @@ Notifications.setNotificationHandler({
 });
 
 const FONT = 'GowunDodum_400Regular';
-type Screen = 'home' | 'capture' | 'reframe' | 'melt' | 'released' | 'crisis' | 'letter';
+type Screen = 'home' | 'capture' | 'reframe' | 'melt' | 'released' | 'crisis' | 'letter' | 'upsell';
 
 export default function App() {
   const [fontsLoaded] = useFonts({ GowunDodum_400Regular });
@@ -47,7 +47,7 @@ export default function App() {
   if (!state.onboarded) return <Onboarding onDone={onOnboardDone} font={FONT} />;
 
   const reset = () => { setText(''); setEmotions([]); setReframe(null); setNight(false); };
-  const startCapture = (isNight: boolean) => { setNight(isNight); setScreen('capture'); };
+  const startCapture = (isNight: boolean) => { if (!canMelt(state)) { setScreen('upsell'); return; } setNight(isNight); setScreen('capture'); };
   const toggleEmotion = (e: string) =>
     setEmotions((p) => (p.includes(e) ? p.filter((x) => x !== e) : [...p, e]));
 
@@ -80,7 +80,8 @@ export default function App() {
       {screen === 'reframe' && <Reframe loading={loading} reframe={reframe} onMelt={() => setScreen('melt')} />}
       {screen === 'melt' && <Melt line={reframe?.melt_line || '이건 내가 짊어질 게 아니다.'} onDone={() => setScreen('released')} />}
       {screen === 'released' && <Released onHome={onReleased} />}
-      {screen === 'letter' && <Letter count={meltsThisWeek(state)} onHome={() => setScreen('home')} />}
+      {screen === 'letter' && <Letter count={meltsThisWeek(state)} isPlus={state.isPlus} onUpsell={() => setScreen('upsell')} onHome={() => setScreen('home')} />}
+      {screen === 'upsell' && <Upsell onStart={() => { persist({ ...state, isPlus: true }); setScreen('home'); }} onHome={() => setScreen('home')} />}
       {screen === 'crisis' && <Crisis onHome={() => { reset(); setScreen('home'); }} />}
     </View>
   );
@@ -209,7 +210,7 @@ function Released({ onHome }: { onHome: () => void }) {
   );
 }
 
-function Letter({ count, onHome }: { count: number; onHome: () => void }) {
+function Letter({ count, isPlus, onUpsell, onHome }: { count: number; isPlus: boolean; onUpsell: () => void; onHome: () => void }) {
   const line = count === 0
     ? '이번 주는 아직이네요. 오늘 하나, 가볍게 녹여볼까요?'
     : '쌓이기 전에 흘려보낸 당신, 잘하고 있어요. 그 무게는 더 이상 당신 것이 아니에요.';
@@ -221,8 +222,37 @@ function Letter({ count, onHome }: { count: number; onHome: () => void }) {
         <Text style={styles.streakNum}>{count}</Text>
         <Text style={styles.streakLabel}>번 마음을 녹여 보냈어요</Text>
       </View>
-      <Text style={styles.body}>{line}</Text>
-      <Btn label="돌아가기" onPress={onHome} ghost />
+      {isPlus ? (
+        <>
+          <Text style={styles.body}>{line}</Text>
+          <Btn label="돌아가기" onPress={onHome} ghost />
+        </>
+      ) : (
+        <>
+          <Text style={styles.body}>주간 레터는 Plus에서 매주 따뜻한 회고로 만나요.</Text>
+          <Btn label="Plus로 받아보기" onPress={onUpsell} />
+          <Btn label="돌아가기" onPress={onHome} ghost />
+        </>
+      )}
+    </ScrollView>
+  );
+}
+
+function Upsell({ onStart, onHome }: { onStart: () => void; onHome: () => void }) {
+  return (
+    <ScrollView contentContainerStyle={styles.screen}>
+      <Pressable onPress={onHome}><Text style={styles.back}>←</Text></Pressable>
+      <Text style={styles.h2}>오늘의 무료 녹이기를 다 썼어요</Text>
+      <Text style={styles.body}>Plus로 마음을 무제한으로 녹이고, 매주 사르르 레터를 받아보세요.</Text>
+      <View style={[styles.card, { alignItems: 'flex-start' }]}>
+        <Text style={styles.resource}>· 무제한 녹이기</Text>
+        <Text style={styles.resource}>· 깊은 AI 리프레임</Text>
+        <Text style={styles.resource}>· 주간 사르르 레터 · 광고 없음</Text>
+      </View>
+      <Text style={styles.body}>연 ₩59,000 (하루 약 162원) · 14일 무료 체험</Text>
+      <Btn label="14일 무료 체험 시작" onPress={onStart} />
+      <Btn label="내일 다시" onPress={onHome} ghost />
+      <Text style={styles.disclaimer}>※ 가격은 출시 예정(가정값). 실결제는 추후 연동.</Text>
     </ScrollView>
   );
 }
