@@ -1,4 +1,4 @@
-# PreBurn — MVP Technical Spec (v1)
+# Saruru — MVP Technical Spec (v1)
 
 > Scope: the **core loop only** — Home → Capture → Reframe (Claude) → Burn → Released, plus a Crisis path. Privacy-first, text input (voice = OS keyboard dictation), no audio, no accounts required to start. AI backend = **Anthropic Claude** via a secure proxy. Everything not in this doc (paywall, B2B, patterns, multilingual) is deferred.
 
@@ -171,7 +171,7 @@ export async function getReframe(input: { text: string; emotions: string[] }): P
 ### 6.2 System prompt (the heart of the product)
 
 ```
-You are the reflection engine inside PreBurn, a privacy-first emotional
+You are the reflection engine inside Saruru, a privacy-first emotional
 decompression tool for customer-facing workers. The user describes a difficult
 interaction. Your goal is to help them reach CLOSURE — release the moment — not
 to rehearse revenge or judge the other person.

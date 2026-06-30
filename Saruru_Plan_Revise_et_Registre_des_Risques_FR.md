@@ -1,6 +1,6 @@
-# PreBurn — Plan d'affaires révisé & Registre stratégique des risques
+# Saruru — Plan d'affaires révisé & Registre stratégique des risques
 
-> **Statut :** Nom provisoire (« PreBurn » présente un conflit de marque — voir Risque N). Avant validation.
+> **Statut :** Nom choisi — Saruru (사르르). Recherche de marque (KIPO/EUIPO/USPTO) encore à faire. Avant validation.
 > **Date :** 26 juin 2026
 > **Objet de ce document :** Deux choses en un seul fichier. La **Partie 1** est une évaluation honnête, dans l'esprit d'un consultant, et un registre des risques — les vérités difficiles à conserver même si le projet est mis en pause ou abandonné. La **Partie 2** est le plan d'affaires révisé qui intègre ces correctifs. Lisez d'abord la Partie 1 ; c'est la partie la plus utile à garder.
 
@@ -85,9 +85,9 @@ Le marché mondial des applications de santé mentale à 7,48 Md$ *(sourcé : Gr
 
 Utilisateurs émotionnellement vulnérables + réponses générées par IA + données de **catégorie spéciale** RGPD (santé mentale) + contenu de crise selon les juridictions = une lourde charge de conformité et de responsabilité. La détection de crise basée sur un LLM est **peu fiable**, et un faux négatif (manquer une vraie crise) est catastrophique — sur le plan réputationnel et juridique. Ce n'est pas une case à cocher ; cela peut conditionner la possibilité même de lancer. Prévoyez un budget pour une revue juridique et concevez le parcours de crise de manière conservatrice dès le premier jour.
 
-### Risque N — Conflit de nom (« PreBurn »)
+### Risque N — Nom (résolu → Saruru)
 
-« PreBurn » apparaît déjà sur Google Play pour une application liée au burnout, ce qui crée un risque de marque et de propriété intellectuelle. **À régler avant toute dépense de marque.** Cherchez sur EUIPO, la base mondiale des marques de l'OMPI (WIPO), l'USPTO, les boutiques d'applications, les noms de domaine et les pseudos sociaux. Considérez le nom actuel comme provisoire.
+« Saruru » apparaît déjà sur Google Play pour une application liée au burnout, ce qui crée un risque de marque et de propriété intellectuelle. **À régler avant toute dépense de marque.** Cherchez sur EUIPO, la base mondiale des marques de l'OMPI (WIPO), l'USPTO, les boutiques d'applications, les noms de domaine et les pseudos sociaux. Considérez le nom actuel comme provisoire.
 
 ## 1.5 Registre des risques (synthèse)
 
@@ -101,7 +101,7 @@ Utilisateurs émotionnellement vulnérables + réponses générées par IA + don
 | F | Barrière fine et copiable | Moyenne | Élevée | Choisir et construire une vraie barrière (confiance communautaire / qualité de recadrage) |
 | G | TAM de vanité ; marché réel bien plus petit | Moyenne | Élevée | Remplacer par un SOM ascendant |
 | H | Lourde surface sécurité/juridique/RGPD pour un fondateur seul | Élevée | Moyenne | Parcours de crise conservateur ; revue juridique ; minimisation des données |
-| N | Conflit de nom avec « PreBurn » existant | Élevée | Élevée | Recherche complète marque/pseudos avant dépense de marque |
+| N | Ancien nom « Saruru » en conflit — résolu (désormais Saruru) | Élevée | Élevée | Recherche complète marque/pseudos avant dépense de marque |
 
 ## 1.6 Critères d'abandon — quand renoncer
 
@@ -120,7 +120,7 @@ Si deux de ces critères ou plus échouent, le geste honnête est de **pivoter l
 
 ## 2.1 Résumé exécutif (révisé)
 
-PreBurn *(nom provisoire)* est un **outil de décompression émotionnelle, confidentialité d'abord,** pour les personnes en contact avec la clientèle. Après une interaction difficile, l'utilisateur saisit brièvement ce qui s'est passé, reçoit un court recadrage guidé par l'IA qui sépare *sa* responsabilité du comportement du client, et accomplit un rituel symbolique de « combustion » pour marquer la clôture.
+Saruru (사르르) est un **outil de décompression émotionnelle, confidentialité d'abord,** pour les personnes en contact avec la clientèle. Après une interaction difficile, l'utilisateur saisit brièvement ce qui s'est passé, reçoit un court recadrage guidé par l'IA qui sépare *sa* responsabilité du comportement du client, et accomplit un rituel symbolique de « combustion » pour marquer la clôture.
 
 **Ce qui change par rapport au plan original, et pourquoi :**
 
@@ -132,7 +132,7 @@ PreBurn *(nom provisoire)* est un **outil de décompression émotionnelle, confi
 
 ## 2.2 Le problème (resserré)
 
-Les travailleurs de première ligne absorbent colère, sentiment de tout-dû et manque de respect tout en devant rester polis. Pris isolément, ces moments paraissent mineurs ; cumulés, ils contribuent à l'épuisement émotionnel. La recherche relie l'incivilité des clients à l'épuisement émotionnel et aux intentions de départ chez les employés de service. L'OMS définit le **burnout** comme un phénomène lié au travail résultant d'un stress professionnel chronique non géré, caractérisé par l'épuisement, le cynisme et une efficacité réduite *(sourcé : cadrage CIM-11 de l'OMS)*. PreBurn vise la **couche pré-burnout** : une libération préventive et légère — explicitement **pas** un traitement clinique.
+Les travailleurs de première ligne absorbent colère, sentiment de tout-dû et manque de respect tout en devant rester polis. Pris isolément, ces moments paraissent mineurs ; cumulés, ils contribuent à l'épuisement émotionnel. La recherche relie l'incivilité des clients à l'épuisement émotionnel et aux intentions de départ chez les employés de service. L'OMS définit le **burnout** comme un phénomène lié au travail résultant d'un stress professionnel chronique non géré, caractérisé par l'épuisement, le cynisme et une efficacité réduite *(sourcé : cadrage CIM-11 de l'OMS)*. Saruru vise la **couche pré-burnout** : une libération préventive et légère — explicitement **pas** un traitement clinique.
 
 Les applications de bien-être génériques demandent « Comment vous sentez-vous aujourd'hui ? » Le besoin non satisfait est plus précis : *« Cette interaction m'a blessé — comment arrêter de la porter, et que dire la prochaine fois ? »*
 
@@ -247,7 +247,7 @@ Les chiffres originaux de revenu annualisé Années 1–3 (≈24 K€ → ≈254
 
 - **Confidentialité :** pas de noms de clients, pas de noms de lieux de travail par défaut, pas de photo/vidéo dans le MVP, local d'abord quand c'est possible, suppression après combustion, pas de vente de données, pas de pistage publicitaire, consentement explicite avant tout traitement IA. Le mettre fortement en avant — c'est un facteur de différenciation.
 - **Sécurité :** parcours de crise conservateur. Si une saisie suggère automutilation, menaces ou crise, **ne pas** dérouler le rituel comme si tout était normal — proposer des ressources de soutien adaptées et conscientes de la juridiction. Supposer que la détection de crise par LLM est imparfaite ; concevoir pour les faux négatifs (Risque H).
-- **Allégations :** PreBurn n'est **pas** un dispositif médical, une thérapie, un service de crise ni un outil de diagnostic. Ne jamais prétendre « guérir » ou « traiter » le burnout ou la dépression.
+- **Allégations :** Saruru n'est **pas** un dispositif médical, une thérapie, un service de crise ni un outil de diagnostic. Ne jamais prétendre « guérir » ou « traiter » le burnout ou la dépression.
 - **Pas** de cadrage vengeur, **pas** d'identification des clients, **pas** de surveillance par l'employeur.
 
 ## 2.15 Questions ouvertes à résoudre avant de s'engager
@@ -258,4 +258,4 @@ Les chiffres originaux de revenu annualisé Années 1–3 (≈24 K€ → ≈254
 4. Une **offre gratuite sans IA** + une offre IA payante peuvent-elles être à marge positive ? (Détermine la viabilité.)
 5. Quel est le **vrai nom disponible** et la marque ?
 
-Ce document existe pour que — que PreBurn soit lancé, pivote ou soit mis de côté — le raisonnement soit conservé et réutilisable pour la prochaine idée.
+Ce document existe pour que — que Saruru soit lancé, pivote ou soit mis de côté — le raisonnement soit conservé et réutilisable pour la prochaine idée.

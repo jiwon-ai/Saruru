@@ -1,6 +1,6 @@
-# PreBurn — Revised Business Plan & Strategic Risk Record
+# Saruru — Revised Business Plan & Strategic Risk Record
 
-> **Status:** Working title ("PreBurn" has a naming conflict — see Risk N). Pre-validation.
+> **Status:** Name decided — Saruru (사르르). Formal trademark check (KIPO/EUIPO/USPTO) still pending. Pre-validation.
 > **Date:** 26 June 2026
 > **Purpose of this document:** Two things in one file. **Part 1** is an honest, consultant-style assessment and risk record — the hard truths to keep on record even if this project is paused or abandoned. **Part 2** is the revised business plan that incorporates those fixes. Read Part 1 first; it is the part most worth keeping.
 
@@ -85,9 +85,9 @@ The $7.48B global mental-health-app market *(sourced: Grand View Research, 2024)
 
 Emotionally vulnerable users + AI-generated responses + GDPR **special-category** data (mental health) + crisis content across jurisdictions = a heavy compliance and liability load. LLM-based crisis detection is **unreliable**, and a false negative (missing a genuine crisis) is catastrophic — reputationally and legally. This is not a checkbox; it can gate whether you can launch at all. Budget for legal review and design the crisis path conservatively from day one.
 
-### Risk N — Name conflict ("PreBurn")
+### Risk N — Name (resolved → Saruru)
 
-"PreBurn" already appears on Google Play for a burnout-related app, creating brand and trademark risk. **Resolve before spending anything on brand.** Search EUIPO, WIPO Global Brand Database, USPTO, app stores, domains, and social handles. Treat the current name as a placeholder.
+"Saruru" already appears on Google Play for a burnout-related app, creating brand and trademark risk. **Resolve before spending anything on brand.** Search EUIPO, WIPO Global Brand Database, USPTO, app stores, domains, and social handles. Treat the current name as a placeholder.
 
 ## 1.5 Risk register (summary)
 
@@ -101,7 +101,7 @@ Emotionally vulnerable users + AI-generated responses + GDPR **special-category*
 | F | Thin, copyable moat | Medium | High | Pick and build one real moat (community trust / reframe quality) |
 | G | TAM is vanity; real market much smaller | Medium | High | Replace with bottom-up SOM |
 | H | Heavy safety/legal/GDPR surface for solo founder | High | Medium | Conservative crisis flow; legal review; data minimization |
-| N | Name conflict with existing "PreBurn" | High | High | Full trademark/handle search before brand spend |
+| N | Former name "Saruru" conflict — resolved (now Saruru) | High | High | Full trademark/handle search before brand spend |
 
 ## 1.6 Kill criteria — when to walk away
 
@@ -120,7 +120,7 @@ If two or more of these fail, the honest move is to **pivot the model** (buyer, 
 
 ## 2.1 Executive summary (revised)
 
-PreBurn *(working title)* is a **privacy-first emotional decompression tool** for people in customer-facing work. After a difficult interaction, the user briefly captures what happened, receives a short AI-guided reframe that separates *their* responsibility from the customer's behavior, and completes a symbolic "burn" ritual to mark closure.
+Saruru (사르르) is a **privacy-first emotional decompression tool** for people in customer-facing work. After a difficult interaction, the user briefly captures what happened, receives a short AI-guided reframe that separates *their* responsibility from the customer's behavior, and completes a symbolic "burn" ritual to mark closure.
 
 **What changed from the original plan, and why:**
 
@@ -132,7 +132,7 @@ PreBurn *(working title)* is a **privacy-first emotional decompression tool** fo
 
 ## 2.2 The problem (tightened)
 
-Frontline workers absorb anger, entitlement, and disrespect while being required to stay polite. Individually these moments look minor; cumulatively they contribute to emotional exhaustion. Research links customer incivility to emotional exhaustion and turnover intentions in service employees. The WHO defines **burnout** as an occupational phenomenon from chronic, unmanaged workplace stress, characterized by exhaustion, cynicism, and reduced efficacy *(sourced: WHO ICD-11 framing)*. PreBurn targets the **pre-burnout layer**: small, preventive release — explicitly **not** clinical treatment.
+Frontline workers absorb anger, entitlement, and disrespect while being required to stay polite. Individually these moments look minor; cumulatively they contribute to emotional exhaustion. Research links customer incivility to emotional exhaustion and turnover intentions in service employees. The WHO defines **burnout** as an occupational phenomenon from chronic, unmanaged workplace stress, characterized by exhaustion, cynicism, and reduced efficacy *(sourced: WHO ICD-11 framing)*. Saruru targets the **pre-burnout layer**: small, preventive release — explicitly **not** clinical treatment.
 
 Generic wellness apps ask "How do you feel today?" The unmet need is more specific: *"That interaction hurt — how do I stop carrying it, and what do I say next time?"*
 
@@ -247,7 +247,7 @@ Original Year 1–3 run-rate figures (≈€24K → ≈€254K → ≈€1.36M) 
 
 - **Privacy:** no customer names, no workplace names by default, no photo/video in MVP, local-first where possible, delete-after-burn, no sale of data, no ad tracking, explicit consent before any AI processing. Market this loudly — it is a differentiator.
 - **Safety:** conservative crisis path. If input suggests self-harm, threats, or crisis, **do not** run the ritual as if normal — surface appropriate, jurisdiction-aware support resources. Assume LLM crisis detection is imperfect; design for false negatives (Risk H).
-- **Claims:** PreBurn is **not** a medical device, therapy, crisis service, or diagnostic tool. Never claim to "cure" or "treat" burnout or depression.
+- **Claims:** Saruru is **not** a medical device, therapy, crisis service, or diagnostic tool. Never claim to "cure" or "treat" burnout or depression.
 - **No** revenge framing, **no** customer identification, **no** employer surveillance.
 
 ## 2.15 Open questions to resolve before committing
@@ -258,4 +258,4 @@ Original Year 1–3 run-rate figures (≈€24K → ≈€254K → ≈€1.36M) 
 4. Can a **non-AI free tier** + paid AI tier be margin-positive? (Determines viability.)
 5. What is the **real, available name** and brand?
 
-This document exists so that — whether PreBurn launches, pivots, or is shelved — the reasoning is preserved and reusable for the next idea.
+This document exists so that — whether Saruru launches, pivots, or is shelved — the reasoning is preserved and reusable for the next idea.
