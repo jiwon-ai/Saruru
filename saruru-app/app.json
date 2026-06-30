@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "사르르",
+    "slug": "saruru",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "primaryColor": "#6E8AAE",
+    "splash": {
+      "backgroundColor": "#F1F3F4",
+      "resizeMode": "contain"
+    },
+    "ios": { "supportsTablet": true, "bundleIdentifier": "app.saruru" },
+    "android": { "package": "app.saruru" },
+    "web": { "bundler": "metro" }
+  }
+}
