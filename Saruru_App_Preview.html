@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>사르르 — 앱 미리보기</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"/>
+<style>
+  :root{--bg:#F1F3F4;--card:#fff;--accent:#6E8AAE;--soft:#DDE6EE;--pale:#C7D6E5;--ink:#2B3038;--muted:#586070;--dark:#23272E;}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    background:linear-gradient(160deg,#8FA8C8,#5E7A9F);font-family:"Gowun Dodum",sans-serif;padding:24px;}
+  .hint{color:#fff;opacity:.9;font-size:14px;text-align:center;}
+  .phone{width:390px;height:820px;background:var(--bg);border-radius:46px;border:12px solid #1d2127;
+    box-shadow:0 30px 70px rgba(0,0,0,.35);overflow:hidden;position:relative;}
+  #app{position:absolute;inset:0;display:flex;flex-direction:column;}
+  .scr{flex:1;padding:30px 26px;overflow-y:auto;display:flex;flex-direction:column;}
+  .scr.center{justify-content:center;align-items:center;text-align:center;}
+  .brand{color:var(--accent);font-size:26px;}
+  .slogan{color:var(--muted);font-size:14px;margin:4px 0 22px;}
+  h2{color:var(--ink);font-size:21px;margin:0 0 16px;font-weight:400;}
+  .h1{color:var(--ink);font-size:23px;line-height:1.4;margin:0 0 14px;}
+  .body{color:var(--muted);font-size:15px;line-height:1.55;margin:0 0 22px;}
+  .card{background:var(--card);border-radius:16px;padding:20px;margin-bottom:18px;}
+  .streak{text-align:center;}
+  .streak .n{font-size:40px;color:var(--ink);}
+  .streak .l{font-size:12px;color:var(--muted);}
+  .btn{display:block;width:100%;border:none;background:var(--accent);color:#fff;font-family:inherit;
+    font-size:16px;padding:15px;border-radius:12px;margin-top:10px;cursor:pointer;}
+  .btn.ghost{background:transparent;color:var(--accent);border:1.5px solid var(--accent);}
+  .link{color:var(--accent);font-size:14px;text-align:center;margin-top:14px;cursor:pointer;}
+  textarea{width:100%;min-height:120px;border:none;background:var(--card);border-radius:12px;padding:14px;
+    font-family:inherit;font-size:16px;color:var(--ink);resize:none;margin-bottom:16px;}
+  .lbl{font-size:12px;color:var(--muted);margin-bottom:8px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+  .chip{background:var(--card);border-radius:999px;padding:7px 14px;font-size:13px;color:var(--muted);cursor:pointer;}
+  .chip.on{background:var(--soft);color:var(--accent);}
+  .re{background:var(--card);border-radius:12px;padding:16px;margin-bottom:12px;}
+  .re .t{font-size:11px;color:var(--accent);margin-bottom:6px;}
+  .re .x{font-size:15px;color:var(--ink);line-height:1.5;}
+  .back{font-size:24px;color:var(--muted);cursor:pointer;margin-bottom:6px;}
+  .melt{flex:1;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;}
+  .note{background:#F1EFEA;border-radius:10px;padding:20px 22px;transform:rotate(-2deg);color:#2B3038;font-size:16px;
+    max-width:280px;text-align:center;transition:opacity 2.2s ease-in, transform 2.2s ease-in;}
+  .note.go{opacity:0;transform:translateY(40px) scale(.92) rotate(-2deg);}
+  .hintmelt{color:var(--pale);font-size:14px;}
+  .released .t{font-size:22px;color:var(--ink);margin-bottom:8px;}
+  .price{background:var(--card);border:1px solid var(--soft);border-radius:14px;padding:20px;margin-bottom:14px;}
+  .price .p{font-size:22px;color:var(--ink);}
+  .price .s{font-size:13px;color:var(--muted);}
+  .price ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.7;}
+  .skip{text-align:center;color:var(--muted);font-size:14px;margin-top:14px;cursor:pointer;}
+  .res{font-size:15px;color:var(--ink);line-height:1.9;cursor:pointer;}
+  .disc{font-size:11px;color:var(--muted);text-align:center;margin-top:auto;padding-top:18px;}
+  .sample{background:var(--card);border-radius:12px;padding:13px;margin-bottom:10px;cursor:pointer;color:var(--ink);font-size:15px;}
+</style>
+</head>
+<body>
+<div class="hint">사르르 인터랙티브 미리보기 · 실제 앱 흐름 (mock AI, 설치 불필요)</div>
+<div class="phone"><div id="app"></div></div>
+<script>
+const EMOTIONS=["모욕감","분노","무력감","수치","불안","지침"];
+const CRISIS=["죽고","자살","죽을","사라지고 싶","해치","없어지고 싶"];
+const TEMPLATES=[
+ {re:/쿠폰|적립|찢|던/,t:{nyr:"당신은 모두에게 똑같은 규칙을 적용했을 뿐이에요.",why:"규칙에 대한 이견이 아니라, 사람들 앞에서 무례를 드러내 보인 게 아팠던 거예요.",cl:"그건 당신의 가치가 아니라, 그 사람이 작은 경계를 못 견딘 것뿐이에요.",ml:"이 무례는 내 것이 아니다. 나는 내 품위를 지킨다."}},
+ {re:/반말|소리|고함|언성|화내/,t:{nyr:"혼잡은 당신 혼자 만든 게 아니고, 당신은 최선을 다하고 있었어요.",why:"일의 속도가 아니라, 한 사람으로서 존중받지 못한 게 아팠던 거예요.",cl:"그 사람의 조급함은 그 사람의 몫이지, 당신의 부족함이 아니에요.",ml:"그의 조급함은 내 것이 아니다. 나는 차분함을 고른다."}},
+ {re:/환불|교환|반품/,t:{nyr:"환불 규정은 당신이 만든 게 아니고, 당신은 공정하게 적용했을 뿐이에요.",why:"거절 자체보다, 당신을 벽처럼 대하며 몰아세운 태도가 아팠던 거예요.",cl:"규정을 지킨 건 잘못이 아니에요. 당신은 해야 할 일을 했어요.",ml:"나는 규정을 지켰다. 그의 화는 내 것이 아니다."}},
+ {re:/별점|리뷰|신고|협박/,t:{nyr:"압박에 굴해 규칙을 깨지 않은 건 옳은 선택이었어요.",why:"평가가 두려운 게 아니라, 당신의 성실함이 한순간에 부정당하는 느낌이 아팠던 거예요.",cl:"한 사람의 분풀이가 당신의 하루 전체를 정의하진 않아요.",ml:"그의 압박은 내 가치를 정하지 못한다. 나는 흔들리지 않는다."}},
+ {re:/무시|모욕|이런 것도|깔보|비웃/,t:{nyr:"실수가 있었더라도 고치면 되는 일이고, 당신의 인격과는 별개예요.",why:"지적이 아니라, 사람 자체를 모욕한 말이 아팠던 거예요.",cl:"그 말은 그 사람의 태도일 뿐, 당신을 정의하지 않아요.",ml:"그 말은 나를 정의하지 않는다. 나는 나를 지킨다."}},
+];
+const DEF={nyr:"당신은 해야 할 일을 했을 뿐이에요. 그 사람의 태도는 당신 몫이 아니에요.",why:"단순한 일 때문이 아니라, 한 사람으로서 존중받지 못한 게 아팠던 거예요.",cl:"그건 당신의 가치가 아니에요. 오늘 건 오늘 내려놓아도 괜찮아요.",ml:"이건 내가 짊어질 게 아니다."};
+function reframe(text){
+  if(CRISIS.some(k=>text.includes(k))) return {crisis:true};
+  const hit=TEMPLATES.find(x=>x.re.test(text));
+  return hit?hit.t:DEF;
+}
+const CLOUD=(()=>{const c=[[0,40,150],[-118,70,92],[120,70,92],[-66,-40,92],[70,-44,96],[0,86,124],[-150,86,70],[150,86,70]];
+  let s='<svg viewBox="0 0 1024 1024" width="170" height="170"><defs><linearGradient id="cd" gradientUnits="userSpaceOnUse" x1="0" y1="300" x2="0" y2="640"><stop offset="0" stop-color="#9DB4CE"/><stop offset="1" stop-color="#5E7A9F"/></linearGradient></defs>';
+  c.forEach(([dx,dy,r])=>s+=`<circle cx="${512+dx}" cy="${440+dy}" r="${r}" fill="url(#cd)"/>`);
+  s+='<path d="M 400 560 C 410 700 408 740 420 760 C 432 740 430 700 424 560 Z" fill="#5E7A9F"/>';
+  s+='<path d="M 600 564 C 610 700 608 742 622 760 C 636 742 634 700 628 564 Z" fill="#5E7A9F"/>';
+  return s+'</svg>';})();
+
+let st={scr:'ob',step:0,text:'',emo:[],rf:null,streak:+(localStorage.s||0),used:(localStorage.ud===today()?+localStorage.uc||0:0),plus:false};
+function today(){return new Date().toISOString().slice(0,10);}
+function save(){localStorage.s=st.streak;localStorage.ud=today();localStorage.uc=st.used;}
+const app=document.getElementById('app');
+function go(s){st.scr=s;render();}
+
+function render(){
+  let h='';
+  if(st.scr==='ob'){
+    const S=st.step;
+    if(S===0)h=`<div class="scr center"><div class="brand">사르르</div><div class="h1">사람을 상대하는 당신께.<br>오늘도 수고했어요.</div><div class="body">손님이 남긴 감정, 쌓이기 전에 사르르 녹여 보내요.</div><button class="btn" onclick="st.step=1;render()">시작하기</button></div>`;
+    else if(S===1)h=`<div class="scr center"><div class="h1">진상 손님 뒤,<br>그 감정 어디에 두세요?</div><div class="body">참고 삼키면 번아웃이 돼요. 사르르는 그 전에 녹여요.</div><button class="btn" onclick="st.step=2;render()">다음</button></div>`;
+    else h=`<div class="scr center"><h2>당신의 감정은 상품이 아니에요.</h2><div class="body">기록은 기기에 남고, 녹이면 지워져요. 광고에 쓰지 않고, 팔지 않아요.</div><button class="btn" onclick="go('home')">사르르 시작하기</button></div>`;
+  }
+  else if(st.scr==='home'){
+    h=`<div class="scr"><div class="brand">사르르</div><div class="slogan">쌓이기 전에, 녹여 보내요</div>
+    <div class="card streak"><div class="n">${st.streak}</div><div class="l">일 연속 깨끗하게</div></div>
+    <div class="body">오늘, 마음에 남은 일이 있나요? 쌓이기 전에 사르르 녹여 보내요.</div>
+    <button class="btn" onclick="startCap(false)">마음 녹이기</button>
+    <button class="btn ghost" onclick="startCap(true)">🌙 오늘의 마무리 (밤 의식)</button>
+    <div class="link" onclick="go('letter')">이번 주 사르르 레터 보기 ›</div>
+    <div class="disc">사르르는 의료·치료·상담·진단 서비스가 아니에요.</div></div>`;
+  }
+  else if(st.scr==='cap'){
+    h=`<div class="scr"><div class="back" onclick="go('home')">←</div><h2>무슨 일이 있었어요?</h2>
+    <textarea id="ta" placeholder="한 줄이면 충분해요.">${st.text}</textarea>
+    <div class="lbl">지금 기분은? (선택)</div><div class="chips">${EMOTIONS.map(e=>`<div class="chip ${st.emo.includes(e)?'on':''}" onclick="toggle('${e}')">${e}</div>`).join('')}</div>
+    <button class="btn" onclick="next()">다음</button></div>`;
+  }
+  else if(st.scr==='rf'){
+    const r=st.rf;
+    h=`<div class="scr"><h2>다시 한 번, 이렇게 봐요</h2>
+    <div class="re"><div class="t">당신 잘못이 아니에요</div><div class="x">${r.nyr}</div></div>
+    <div class="re"><div class="t">왜 아팠나</div><div class="x">${r.why}</div></div>
+    <div class="re"><div class="t">놓아주기</div><div class="x">${r.cl}</div></div>
+    <button class="btn" onclick="go('melt')">사르르 녹이기</button></div>`;
+  }
+  else if(st.scr==='melt'){
+    h=`<div class="melt">${CLOUD}<div class="note" id="note">${st.rf.ml}</div><div class="hintmelt">사르르…</div></div>`;
+    app.innerHTML=h;
+    setTimeout(()=>document.getElementById('note').classList.add('go'),120);
+    setTimeout(()=>{st.streak++;st.used++;save();go('released');},2500);return;
+  }
+  else if(st.scr==='released'){
+    h=`<div class="scr center released"><div class="t">녹아서 사라졌어요.</div><div class="body">더는 짊어지지 않아도 돼요.</div><button class="btn" onclick="reset();go('home')">돌아가기</button></div>`;
+  }
+  else if(st.scr==='letter'){
+    h=`<div class="scr"><div class="back" onclick="go('home')">←</div><div class="brand">이번 주 사르르 레터</div>
+    <div class="card streak" style="margin-top:18px"><div class="n">${st.streak}</div><div class="l">번 마음을 녹여 보냈어요</div></div>
+    <div class="body">쌓이기 전에 흘려보낸 당신, 잘하고 있어요. 그 무게는 더 이상 당신 것이 아니에요.</div>
+    <button class="btn ghost" onclick="go('home')">돌아가기</button></div>`;
+  }
+  else if(st.scr==='upsell'){
+    h=`<div class="scr"><div class="back" onclick="go('home')">←</div><h2>오늘의 무료 녹이기를 다 썼어요</h2>
+    <div class="body">Plus로 마음을 무제한으로 녹이고, 매주 사르르 레터를 받아보세요.</div>
+    <div class="price"><div class="p">연 ₩59,000 <span class="s">· 하루 약 162원</span></div><div class="s">14일 무료 체험</div>
+    <ul><li>무제한 녹이기</li><li>깊은 AI 리프레임</li><li>주간 사르르 레터 · 광고 없음</li></ul></div>
+    <button class="btn" onclick="st.plus=true;go('home')">14일 무료 체험 시작</button>
+    <div class="skip" onclick="go('home')">내일 다시</div></div>`;
+  }
+  else if(st.scr==='crisis'){
+    h=`<div class="scr center"><h2>잠깐, 당신이 걱정돼요.</h2><div class="body">지금 많이 힘들다면, 혼자 견디지 않아도 돼요.</div>
+    <div class="card" style="text-align:left"><div class="res" onclick="alert('실제 앱에서는 전화가 걸려요: 109')">· 자살예방상담전화 109</div><div class="res" onclick="alert('실제 앱에서는 전화가 걸려요: 1577-0199')">· 정신건강상담 1577-0199</div></div>
+    <button class="btn ghost" onclick="reset();go('home')">돌아가기</button></div>`;
+  }
+  app.innerHTML=h;
+  if(st.scr==='cap'){const ta=document.getElementById('ta');ta.oninput=e=>st.text=e.target.value;ta.focus();}
+}
+function startCap(n){ if(!st.plus && st.used>=1){go('upsell');return;} st.text='';st.emo=[];go('cap'); }
+function toggle(e){st.emo=st.emo.includes(e)?st.emo.filter(x=>x!==e):[...st.emo,e];render();}
+function next(){ if(!st.text.trim())return; const r=reframe(st.text.trim()); if(r.crisis){go('crisis');return;} st.rf=r; go('rf'); }
+function reset(){st.text='';st.emo=[];st.rf=null;}
+render();
+</script>
+</body>
+</html>
