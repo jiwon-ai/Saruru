@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   View, Text, TextInput, Pressable, ScrollView, Animated, Easing,
-  StyleSheet, ActivityIndicator, Switch,
+  StyleSheet, ActivityIndicator, Switch, Linking,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Notifications from 'expo-notifications';
@@ -12,6 +12,7 @@ import { Incident, ReframeResult } from './src/types';
 import { loadState, saveState, recordMelt, meltsThisWeek, canMelt, SaruruState, defaultState } from './src/storage';
 import { scheduleBedtime, cancelBedtime } from './src/notify';
 import Onboarding from './src/onboarding';
+import { track } from './src/analytics';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({ shouldShowAlert: true, shouldPlaySound: false, shouldSetBadge: false }),
@@ -30,7 +31,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [reframe, setReframe] = useState<ReframeResult | null>(null);
 
-  useEffect(() => { loadState().then(setState); }, []);
+  useEffect(() => { loadState().then(setState); track('app_open'); }, []);
 
   if (!fontsLoaded || !state) {
     return <View style={[styles.root, styles.center]}><ActivityIndicator color={colors.accent} /></View>;
@@ -41,13 +42,14 @@ export default function App() {
   const onOnboardDone = async (p: { deleteAfterMelt: boolean; bedtimeReminder: boolean; isPlus: boolean }) => {
     const ns = { ...state, ...defaultState, onboarded: true, ...p };
     persist(ns);
+    track('onboarding_done', { isPlus: p.isPlus, reminder: p.bedtimeReminder });
     if (p.bedtimeReminder) await scheduleBedtime();
   };
 
   if (!state.onboarded) return <Onboarding onDone={onOnboardDone} font={FONT} />;
 
   const reset = () => { setText(''); setEmotions([]); setReframe(null); setNight(false); };
-  const startCapture = (isNight: boolean) => { if (!canMelt(state)) { setScreen('upsell'); return; } setNight(isNight); setScreen('capture'); };
+  const startCapture = (isNight: boolean) => { if (!canMelt(state)) { track('upsell_view'); setScreen('upsell'); return; } track('melt_start', { night: isNight }); setNight(isNight); setScreen('capture'); };
   const toggleEmotion = (e: string) =>
     setEmotions((p) => (p.includes(e) ? p.filter((x) => x !== e) : [...p, e]));
 
@@ -59,7 +61,7 @@ export default function App() {
     if (r.safety.flag) setScreen('crisis');
   };
 
-  const onReleased = () => { persist(recordMelt(state)); reset(); setScreen('home'); };
+  const onReleased = () => { track('melt_complete'); persist(recordMelt(state)); reset(); setScreen('home'); };
 
   const setReminder = async (on: boolean) => {
     persist({ ...state, bedtimeReminder: on });
@@ -81,7 +83,7 @@ export default function App() {
       {screen === 'melt' && <Melt line={reframe?.melt_line || '이건 내가 짊어질 게 아니다.'} onDone={() => setScreen('released')} />}
       {screen === 'released' && <Released onHome={onReleased} />}
       {screen === 'letter' && <Letter count={meltsThisWeek(state)} isPlus={state.isPlus} onUpsell={() => setScreen('upsell')} onHome={() => setScreen('home')} />}
-      {screen === 'upsell' && <Upsell onStart={() => { persist({ ...state, isPlus: true }); setScreen('home'); }} onHome={() => setScreen('home')} />}
+      {screen === 'upsell' && <Upsell onStart={() => { track('upsell_convert'); persist({ ...state, isPlus: true }); setScreen('home'); }} onHome={() => setScreen('home')} />}
       {screen === 'crisis' && <Crisis onHome={() => { reset(); setScreen('home'); }} />}
     </View>
   );
@@ -263,8 +265,8 @@ function Crisis({ onHome }: { onHome: () => void }) {
       <Text style={styles.h2}>잠깐, 당신이 걱정돼요.</Text>
       <Text style={[styles.body, { textAlign: 'center' }]}>지금 많이 힘들다면, 혼자 견디지 않아도 돼요. 아래로 바로 연결돼요.</Text>
       <View style={[styles.card, { marginTop: 16, alignItems: 'flex-start' }]}>
-        <Text style={styles.resource}>· 자살예방상담전화 109</Text>
-        <Text style={styles.resource}>· 정신건강상담 1577-0199</Text>
+        <Pressable onPress={() => Linking.openURL('tel:109')}><Text style={styles.resource}>· 자살예방상담전화 109  (전화 걸기)</Text></Pressable>
+        <Pressable onPress={() => Linking.openURL('tel:1577-0199')}><Text style={styles.resource}>· 정신건강상담 1577-0199  (전화 걸기)</Text></Pressable>
         <Text style={styles.resourceSub}>24시간 연결돼요.</Text>
       </View>
       <View style={{ height: 16 }} />
