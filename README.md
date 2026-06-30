@@ -43,6 +43,7 @@ Pre-validation / pre-MVP. This repo currently holds the **planning, risk, and de
 | [Saruru_Privacy_Policy_KR.md](./Saruru_Privacy_Policy_KR.md) | 개인정보처리방침 초안 (KR) |
 | [Saruru_Terms_KR.md](./Saruru_Terms_KR.md) | 이용약관 초안 (KR) |
 | [Saruru_Launch_Checklist_KR.md](./Saruru_Launch_Checklist_KR.md) | 출시 체크리스트 (KR) |
+| [Saruru_Benchmark_DeepDive_Korea_KR.md](./Saruru_Benchmark_DeepDive_Korea_KR.md) | 글로벌 벤치마킹 + 한국 적용 심층 리서치 (KR) |
 
 ## App code
 `saruru-app/` — **runnable Expo (React Native) scaffold** of the core loop (home · capture · reframe · melt animation · released · crisis + nightly entry). Runs with mock AI (no key needed). See [saruru-app/README.md](./saruru-app/README.md).
