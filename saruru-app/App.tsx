@@ -128,7 +128,7 @@ function Home({ state, onStart, onLetter, setDelete, setReminder }: any) {
           <Text style={styles.link}>디버그: 퍼널 카운트</Text>
         </Pressable>
       )}
-      <Text style={styles.disclaimer}>사르르는 의료·치료·상담·진단 서비스가 아니에요.</Text>
+      <Text style={styles.disclaimer}>익명·무기록으로 써요. 사르르는 의료기기가 아니며, 의료·치료·상담·진단 서비스가 아니에요.</Text>
     </ScrollView>
   );
 }

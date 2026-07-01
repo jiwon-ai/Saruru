@@ -96,7 +96,7 @@ function render(){
   let h='';
   if(st.scr==='ob'){
     const S=st.step;
-    if(S===0)h=`<div class="scr center"><div class="brand">사르르</div><div class="h1">사람 때문에 상한 마음,<br>혼자 삼키지 마세요.</div><div class="body">사람한테 받은 감정, 쌓이기 전에 사르르 녹여 보내요.</div><button class="btn" onclick="st.step=1;render()">시작하기</button></div>`;
+    if(S===0)h=`<div class="scr center"><div class="brand">사르르</div><div class="h1">사람 때문에 상한 마음,<br>혼자 삼키지 마세요.</div><div class="body">사람한테 받은 감정, 쌓이기 전에 사르르 녹여 보내요.</div><div class="body" style="color:var(--accent);font-size:13px;margin-bottom:14px">로그인 없이 익명으로 시작해요.</div><button class="btn" onclick="st.step=1;render()">시작하기</button></div>`;
     else if(S===1)h=`<div class="scr center"><div class="h1">상처 준 사람 뒤,<br>그 감정 어디에 두세요?</div><div class="body">참고 삼키면 번아웃이 돼요. 사르르는 그 전에 녹여요.</div><button class="btn" onclick="st.step=2;render()">다음</button></div>`;
     else h=`<div class="scr center"><h2>당신의 감정은 상품이 아니에요.</h2><div class="body">기록은 기기에 남고, 녹이면 지워져요. 광고에 쓰지 않고, 팔지 않아요.</div><button class="btn" onclick="go('home')">사르르 시작하기</button></div>`;
   }
@@ -107,7 +107,7 @@ function render(){
     <button class="btn" onclick="startCap(false)">마음 녹이기</button>
     <button class="btn ghost" onclick="startCap(true)">🌙 오늘의 마무리 (밤 의식)</button>
     <div class="link" onclick="go('letter')">이번 주 사르르 레터 보기 ›</div>
-    <div class="disc">사르르는 의료·치료·상담·진단 서비스가 아니에요.</div></div>`;
+    <div class="disc">익명·무기록. 사르르는 의료기기가 아니며, 의료·치료·상담·진단 서비스가 아니에요.</div></div>`;
   }
   else if(st.scr==='cap'){
     h=`<div class="scr"><div class="back" onclick="go('home')">←</div><h2>무슨 일이 있었어요?</h2>
