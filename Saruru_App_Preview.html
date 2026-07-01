@@ -98,7 +98,19 @@ function render(){
     const S=st.step;
     if(S===0)h=`<div class="scr center"><div class="brand">사르르</div><div class="h1">사람 때문에 상한 마음,<br>혼자 삼키지 마세요.</div><div class="body">사람한테 받은 감정, 쌓이기 전에 사르르 녹여 보내요.</div><div class="body" style="color:var(--accent);font-size:13px;margin-bottom:14px">로그인 없이 익명으로 시작해요.</div><button class="btn" onclick="st.step=1;render()">시작하기</button></div>`;
     else if(S===1)h=`<div class="scr center"><div class="h1">상처 준 사람 뒤,<br>그 감정 어디에 두세요?</div><div class="body">참고 삼키면 번아웃이 돼요. 사르르는 그 전에 녹여요.</div><button class="btn" onclick="st.step=2;render()">다음</button></div>`;
-    else h=`<div class="scr center"><h2>당신의 감정은 상품이 아니에요.</h2><div class="body">기록은 기기에 남고, 녹이면 지워져요. 광고에 쓰지 않고, 팔지 않아요.</div><button class="btn" onclick="go('home')">사르르 시작하기</button></div>`;
+    else if(S===2)h=`<div class="scr center"><h2>당신의 감정은 상품이 아니에요.</h2><div class="body">기록은 내 기기에만 남고, 녹이면 사라져요. 광고에 쓰지 않고, 팔지 않아요. 로그인도 없어요.</div><button class="btn" onclick="st.step=3;render()">알겠어요</button></div>`;
+    else if(S===3){
+      if(!st.obrf)h=`<div class="scr"><h2>한 번 해볼까요?</h2><div class="body">비슷한 일을 골라보세요. 어떻게 정리되는지 바로 보여드릴게요.</div>${EX.slice(0,3).map(e=>`<div class="sample" onclick="obTry(\`${e}\`)">${e}</div>`).join(``)}</div>`;
+      else h=`<div class="scr"><div class="re"><div class="t">당신 잘못이 아니에요</div><div class="x">${st.obrf.nyr}</div></div><div class="re"><div class="t">놓아주기</div><div class="x">${st.obrf.cl}</div></div><button class="btn" onclick="st.step=4;render()">사르르 녹이기</button></div>`;
+    }
+    else if(S===4){
+      h=`<div class="melt">${CLOUD}<div class="note" id="note">${st.obrf?st.obrf.ml:'이건 내가 짊어질 게 아니다.'}</div><div class="hintmelt">사르르…</div></div>`;
+      app.innerHTML=h;
+      setTimeout(()=>document.getElementById('note').classList.add('go'),120);
+      setTimeout(()=>{st.step=5;render();},2500);return;
+    }
+    else if(S===5)h=`<div class="scr center"><div class="h1">녹아서 사라졌어요.<br>조금 가벼워졌나요?</div><div class="body">이렇게 매일, 쌓이기 전에 녹여 보내요.</div><button class="btn" onclick="st.step=6;render()">네, 계속</button></div>`;
+    else h=`<div class="scr"><h2>방금처럼, 무제한으로.</h2><div class="price"><div class="p">연 ₩39,000 <span class="s">· 하루 약 107원</span></div><div class="s">또는 월 ₩5,900 · 14일 무료 체험</div><ul><li>무제한 녹이기</li><li>깊은 리프레임</li><li>주간 사르르 레터 · 광고 없음</li></ul></div><button class="btn" onclick="go('home')">14일 무료 체험 시작</button><div class="skip" onclick="go('home')">지금은 무료로 시작</div><div style="color:var(--muted);font-size:11px;text-align:center;margin-top:12px">언제든 스토어에서 한 번에 해지 · 사르르는 의료기기가 아니에요.</div></div>`;
   }
   else if(st.scr==='home'){
     h=`<div class="scr"><div class="brand">사르르</div><div class="slogan">쌓이기 전에, 녹여 보내요</div>
@@ -156,6 +168,7 @@ function render(){
 }
 function startCap(n){ if(!st.plus && st.used>=1){go('upsell');return;} st.text='';st.emo=[];go('cap'); }
 function setEx(e){st.text=e;render();}
+function obTry(e){var r=reframe(e);st.obrf=r.crisis?null:r;render();}
 function toggle(e){st.emo=st.emo.includes(e)?st.emo.filter(x=>x!==e):[...st.emo,e];render();}
 function next(){ if(!st.text.trim())return; const r=reframe(st.text.trim()); if(r.crisis){go('crisis');return;} st.rf=r; go('rf'); }
 function reset(){st.text='';st.emo=[];st.rf=null;}

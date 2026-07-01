@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   View, Text, TextInput, Pressable, ScrollView, Animated, Easing,
-  StyleSheet, ActivityIndicator, Switch, Linking, Alert,
+  StyleSheet, ActivityIndicator, Switch, Linking, Alert, Platform,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Notifications from 'expo-notifications';
@@ -110,6 +110,7 @@ function Home({ state, onStart, onLetter, setDelete, setReminder }: any) {
         <Text style={styles.streakNum}>{state.streak}</Text>
         <Text style={styles.streakLabel}>일 연속 깨끗하게</Text>
       </View>
+      <Text style={styles.streakSoft}>하루쯤 쉬어도 스트릭은 이어져요.</Text>
       <Text style={styles.body}>오늘, 마음에 남은 일이 있나요? 쌓이기 전에 사르르 녹여 보내요.</Text>
       <Btn label="마음 녹이기" onPress={() => onStart(false)} />
       <Btn label="🌙 오늘의 마무리 (밤 의식)" onPress={() => onStart(true)} ghost />
@@ -123,6 +124,9 @@ function Home({ state, onStart, onLetter, setDelete, setReminder }: any) {
         <Text style={styles.settingLabel}>취침 전 알림(밤 의식)</Text>
         <Switch value={state.bedtimeReminder} onValueChange={setReminder} trackColor={{ true: colors.accent }} />
       </View>
+      <Pressable onPress={() => Linking.openURL(Platform.OS === 'ios' ? 'https://apps.apple.com/account/subscriptions' : 'https://play.google.com/store/account/subscriptions')} style={styles.settingRow}>
+        <Text style={styles.settingLabel}>구독 관리 · 해지</Text><Text style={styles.link}>›</Text>
+      </Pressable>
       {__DEV__ && (
         <Pressable onPress={async () => { const c = await getEventCounts(); Alert.alert('퍼널 카운트', JSON.stringify(c, null, 2)); }}>
           <Text style={styles.link}>디버그: 퍼널 카운트</Text>
@@ -303,6 +307,7 @@ const styles = StyleSheet.create({
   card: { backgroundColor: colors.card, borderRadius: 16, padding: 20, alignItems: 'center', marginBottom: 20 },
   streakNum: { fontSize: 34, color: colors.ink, fontFamily: FONT },
   streakLabel: { fontSize: 12, color: colors.muted, marginTop: 4, fontFamily: FONT },
+  streakSoft: { fontSize: 11, color: colors.muted, textAlign: 'center', marginTop: -8, marginBottom: 4, fontFamily: FONT },
   body: { fontSize: 15, color: colors.muted, lineHeight: 23, marginBottom: 20, fontFamily: FONT },
   link: { color: colors.accent, fontSize: 14, marginTop: 14, fontFamily: FONT },
   back: { fontSize: 24, color: colors.muted, marginBottom: 8 },

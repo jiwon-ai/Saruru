@@ -63,9 +63,11 @@ export function canMelt(s: SaruruState): boolean {
 export function recordMelt(s: SaruruState): SaruruState {
   const today = todayStr();
   const yesterday = dayStr(Date.now() - 86400000);
+  const twoDaysAgo = dayStr(Date.now() - 2 * 86400000);
   let streak: number;
   if (s.lastMeltDate === today) streak = s.streak || 1;
   else if (s.lastMeltDate === yesterday) streak = (s.streak || 0) + 1;
+  else if (s.lastMeltDate === twoDaysAgo) streak = s.streak || 1; // 하루 건너뛰어도 유지(죄책감 방지)
   else streak = 1;
   const meltDates = [...s.meltDates, today].slice(-90);
   const todayCount = s.todayCountDate === today ? s.todayCount + 1 : 1;

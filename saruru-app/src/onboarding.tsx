@@ -146,7 +146,7 @@ export default function Onboarding({ onDone, font }: { onDone: (p: Prefs) => voi
           <Pressable onPress={() => { track('paywall_skip', { variant }); finish(false); }}>
             <Text style={[s.skip, f]}>지금은 무료로 시작</Text>
           </Pressable>
-          <Text style={[s.note, f]}>※ 가격은 출시 예정(검증용 가정값). 사르르는 의료기기가 아니에요.</Text>
+          <Text style={[s.note, f]}>※ 체험 종료 전 알려드리고, 언제든 스토어에서 한 번에 해지할 수 있어요. 가격은 출시 예정(가정값). 사르르는 의료기기가 아니에요.</Text>
         </View>
       )}
     </ScrollView>
